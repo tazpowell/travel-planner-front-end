@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl "https://aqueous-forest-96537.herokuapp.com/sign-in" \
+curl "https://aqueous-forest-96537.herokuapp.com/sign-up" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
