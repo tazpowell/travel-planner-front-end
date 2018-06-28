@@ -11,12 +11,12 @@ const onSignUp = function (event) {
   const data = getFormFields(event.target)
   // console.log('data is', data)
   // check if passwords matches
-  if (data.credentials.password === data.credentials.password_confirmation) {
-  } else {
-    authUi.pwNotMatching()
-    // console.log('passwords do not match')
-    return
-  }
+  // if (data.credentials.password === data.credentials.password_confirmation) {
+  // } else {
+  //   authUi.pwNotMatching()
+  //   // console.log('passwords do not match')
+  //   return
+  // }
   store.credentials = {}
   store.credentials.password = data.credentials.password
   // api
@@ -30,6 +30,7 @@ const onSignIn = function (event) {
   event.preventDefault()
   console.log('the sign in form was submitted')
   const data = getFormFields(event.target)
+  console.log('sign in data is ', data)
   // api
   authApi.signIn(data)
     .then(authUi.signInSuccess)
