@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Travel Planner</title>
+      <title>TravelBox</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,90 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Travel Planner</h1>
+      <h1>TravelBox</h1>
+      <div class="container col-md-6">
+      <!-- CREATE ITEM -->
+      <div class="form-area">
+        <form id="create-item-form">
+          <div class="form-group">
+            <label for="item-name">Item name:</label>
+            <input id="item-name" class="form-control" name="item[name]" type="text" placeholder="Enter item name">
+          </div>
+          <div class="form-group">
+            <label for="item-date">Item date:</label>
+            <input id="item-date" class="form-control" name="item[date]" type="date" value="" placeholder="Enter item date">
+          </div>
+          <div class="form-group">
+            <label for="item-status">Item status:</label>
+            <div class="checkbox">
+              <label><input type="checkbox" value="">Active</label>
+            </div>
+          </div>
+          <button type="submit" class="btn-line">Create</button>
+        </form>
+      </div> <!-- end of form-area -->
+    </div> <!-- end of container -->
+
+    <div class="container col-md-6">
+      <!-- SIGN UP -->
+      <div class="form-area">
+        <form id="sign-up-form">
+          <div class="form-group">
+            <label for="email-signup">Email:</label>
+            <input id="email-signup" class="form-control" name="credentials[email]" type="email" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="pwd-signup">Password:</label>
+            <input id="pwd-signup" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password">
+          </div>
+          <div class="form-group">
+            <label for="pwd-conf-signup">Confirm password:</label>
+            <input id="pwd-conf-signup" class="form-control" name="credentials[password_confirmation]" type="password" value="" placeholder="Retype password">
+            <span id="sign-up-msg"></span>
+          </div>
+          <button type="submit" class="btn-line">Sign Up</button>
+        </form>
+      </div> <!-- end of form-area -->
+      <hr>
+
+      <!-- SIGN IN -->
+      <div class="form-area">
+        <!-- <button id="guest-btn" type="button" class="btn-line">Sign in as Guest</button> -->
+        <form id="sign-in-form">
+          <div class="form-group">
+            <label for="email-signin">Email:</label>
+            <input id="email-signin" class="form-control" name="credentials[email]" type="email" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="pwd-signin">Password:</label>
+            <input id="pwd-signin" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password">
+            <span id="sign-in-msg"></span>
+          </div>
+          <button type="submit" class="btn-line">Sign In</button>
+        </form>
+      </div><!-- end of form-area -->
+
+      <hr>
+      <!-- CHANGE PW -->
+      <div class="form-area">
+        <form id="change-pw-form">
+          <div class="form-group">
+            <label for="old-pw-change">Old password:</label>
+            <input id="old-pw-change" class="form-control" name="passwords[old]" type="password" placeholder="Old password">
+          </div>
+          <div class="form-group">
+            <label for="new-pw-change">New password:</label>
+            <input id="new-pw-change" class="form-control" name="passwords[new]" type="password" placeholder="New password">
+            <span id="change-pw-msg"></span>
+          </div>
+          <button type="submit" class="btn-line">Change Password</button>
+        </form>
+      </div><!-- end of form-area -->
+      <hr>
+      <!-- SIGN OUT -->
+      <div class="form-area">
+        <button id="sign-out-btn" type="button" class="btn-line">Sign Out</button>
+      </div><!-- end of form-area -->
+    </div> <!-- end of container -->
     </body>
 </html>
