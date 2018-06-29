@@ -1,0 +1,28 @@
+{{#each items as |item|}}
+
+<div id="item-bucket">
+  <form class="form-horizontal bucket">
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="id">ID:</label>
+      <div class="col-sm-9">
+        <p class="form-control-static">{{item.id}}</p>
+      </div>
+      <label class="control-label col-sm-3" for="name">Name:</label>
+      <div class="col-sm-9">
+        <p class="form-control-static">{{item.name}}</p>
+      </div>
+      <label class="control-label col-sm-3" for="date">Date:</label>
+      <div class="col-sm-9">
+        <p class="form-control-static">{{item.date}}</p>
+      </div>
+      <label class="control-label col-sm-3" for="active">Active:</label>
+      <div class="col-sm-9">
+        <p class="form-control-static">{{item.active}}</p>
+      </div>
+      <button type="button" class="btn-line edit-item-btn" data-id="{{item.id}}">Edit</button>
+      <i class="fa fa-pencil" aria-hidden="true" data-id="{{item.id}}"></i>
+    </div>
+  </form>
+</div>
+
+{{/each}}

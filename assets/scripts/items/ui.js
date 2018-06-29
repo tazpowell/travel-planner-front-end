@@ -1,3 +1,4 @@
+const showItemsTemplate = require('../templates/item-box.handlebars')
 
 // Create item success
 const createItemSuccess = function (createResponse) {
@@ -26,16 +27,23 @@ const createTable = function (json) {
           bodyRows + '</tbody></table></div>'
 }
 
+// create item div from one JSON object
+const createItemBox = function (data) {
+  console.log('data is ', data)
+  const showItemsHtml = showItemsTemplate({ items: data.items })
+  $('#item-bucket').append(showItemsHtml)
+}
+
 // Show all items success
 const showAllSuccess = function (showAllResponse) {
   console.log('showAllResponse is ', showAllResponse)
+  createItemBox(showAllResponse)
   // debugger
   for (let i = 0; i < showAllResponse.items.length; i++) {
     const table = createTable(showAllResponse.items[i])
     console.log('table is ', table)
     $('#items-list').append(table)
   }
-
 }
 
 // Show all items error
@@ -43,11 +51,10 @@ const showAllError = function (showAllError) {
   console.log('showAllError is ', showAllError)
 }
 
-
-
 module.exports = {
   createItemSuccess,
   createItemError,
+  createItemBox,
   showAllSuccess,
   showAllError,
   createTable
