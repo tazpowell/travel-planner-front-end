@@ -18,4 +18,7 @@ $(() => {
   // item forms/buttons
   $('#create-item-form').on('submit', itemsEvents.onCreateItem)
   $('#show-all-items-btn').on('click', itemsEvents.onShowAllItems)
+
+  // individual item buttons
+  $('#item-bucket').on('click', '.edit-item-btn', itemsEvents.onOpenUpdate)
 })

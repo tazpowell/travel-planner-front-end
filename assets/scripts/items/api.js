@@ -25,7 +25,20 @@ const showAllItems = function () {
   })
 }
 
+// UPDATE ONE
+const updateOneItem = function (id, data) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/items/' + id,
+    data: data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createItem,
-  showAllItems
+  showAllItems,
+  updateOneItem
 }

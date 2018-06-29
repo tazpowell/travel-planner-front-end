@@ -26,7 +26,25 @@ const onShowAllItems = function (event) {
     .catch(itemsUi.showAllError)
 }
 
+// OPEN UPDATE MODAL
+const onOpenUpdate = function (event) {
+  console.log('update item was clicked')
+  console.log('event.target data id is ', $(event.target).data('id'))
+}
+
+// UPDATE ITEM
+const onUpdateItem = function (event) {
+  console.log('update item was clicked')
+  console.log('event is ', event)
+  // debugger
+  itemsApi.updateOneItem()
+    .then(itemsUi.updateOneSuccess)
+    .catch(itemsUi.updateOneError)
+}
+
 module.exports = {
   onCreateItem,
-  onShowAllItems
+  onShowAllItems,
+  onOpenUpdate,
+  onUpdateItem
 }

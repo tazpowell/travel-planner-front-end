@@ -39,16 +39,26 @@ const showAllSuccess = function (showAllResponse) {
   console.log('showAllResponse is ', showAllResponse)
   createItemBox(showAllResponse)
   // debugger
-  for (let i = 0; i < showAllResponse.items.length; i++) {
-    const table = createTable(showAllResponse.items[i])
-    console.log('table is ', table)
-    $('#items-list').append(table)
-  }
+  // for (let i = 0; i < showAllResponse.items.length; i++) {
+  //   const table = createTable(showAllResponse.items[i])
+  //   console.log('table is ', table)
+  //   $('#items-list').append(table)
+  // }
 }
 
 // Show all items error
 const showAllError = function (showAllError) {
   console.log('showAllError is ', showAllError)
+}
+
+// Update one item success
+const updateOneSuccess = function (updateResponse) {
+  console.log('updateResponse is ', updateResponse)
+}
+
+// Update one item error
+const updateOneError = function (updateOneError) {
+  console.log('updateOneError is ', updateOneError)
 }
 
 module.exports = {
@@ -57,5 +67,7 @@ module.exports = {
   createItemBox,
   showAllSuccess,
   showAllError,
+  updateOneSuccess,
+  updateOneError,
   createTable
 }
