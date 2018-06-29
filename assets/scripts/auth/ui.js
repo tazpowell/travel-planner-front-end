@@ -40,7 +40,7 @@ const signUpSuccess = function (signUpResponse) {
 // SIGN IN success
 const signInSuccess = function (signInResponse) {
   clearMessages()
-  // console.log('signInResponse is ', signInResponse)
+  console.log('signInResponse is ', signInResponse)
   store.user = signInResponse.user
   console.log('store.user is ', store.user)
   // console.log('store is ', store)
