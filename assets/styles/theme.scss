@@ -11,7 +11,59 @@ hr {
   margin: 30px 0;
 }
 
+.bucket {
+  background-color: lighten($light-purple, 38%);
+  border-color: $black;
+  border-radius: 2px;
+  margin: 20px 0;
+  padding: 20px 0 0;
+  width: 300px;
+}
+
+.btn-line {
+  background-color: transparent;
+  border-color: $light-purple;
+  border-radius: 2px;
+  color: $light-purple;
+  font-size: 16px;
+  letter-spacing: 1px;
+  margin-right: 10px;
+}
+
+.control-label {
+  color: $light-purple;
+  font-size: $labelsize;
+  line-height: 16px;
+  min-height: 20px;
+}
+
+.edit-item-btn {
+  // display: inline-block;
+  float: left;
+  margin: 0 40px;
+  // position: relative;
+}
+
 .form-area {
   // margin: 50px;
   width: 25vw;
+}
+
+.form-control-static {
+  line-height: 16px;
+  min-height: 20px;
+  padding: 0 0 20px;
+}
+
+.form-group {
+  margin: 2px 0;
+}
+
+.form-horizontal {
+  // margin-left: 0;
+  .control-label {
+    margin-left: 0;
+    padding-right: 0;
+    padding-top: 2px;
+  }
 }

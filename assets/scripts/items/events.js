@@ -11,13 +11,22 @@ const onCreateItem = function (event) {
     data.item.active = false
   }
   console.log('data is ', data)
-// debugger
+  // debugger
   // api
   itemsApi.createItem(data)
     .then(itemsUi.createItemSuccess)
     .catch(itemsUi.createItemError)
 }
 
+// SHOW ALL ITEMS from server
+const onShowAllItems = function (event) {
+  console.log('show all items was clicked')
+  itemsApi.showAllItems()
+    .then(itemsUi.showAllSuccess)
+    .catch(itemsUi.showAllError)
+}
+
 module.exports = {
-  onCreateItem
+  onCreateItem,
+  onShowAllItems
 }

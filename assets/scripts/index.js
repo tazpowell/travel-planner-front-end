@@ -15,6 +15,7 @@ $(() => {
   $('#change-pw-form').on('submit', authEvents.onChangePW)
   $('#sign-out-btn').on('click', authEvents.onSignOut)
 
-  // item forms
+  // item forms/buttons
   $('#create-item-form').on('submit', itemsEvents.onCreateItem)
+  $('#show-all-items-btn').on('click', itemsEvents.onShowAllItems)
 })
