@@ -23,7 +23,7 @@
           </div>
           <div class="form-group">
             <label for="item-date">Item date:</label>
-            <input id="item-date" class="form-control" name="item[date]" type="date" value="" placeholder="Enter item date">
+            <input id="item-date" class="form-control" name="item[date]" type="date" value="" placeholder="">
           </div>
           <div class="form-group">
             <label for="item-status">Item status:</label>
@@ -77,6 +77,47 @@
         </form> -->
       </div>
 
+    <!-- MODAL for EDIT/DELETE  -->
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-line" data-toggle="modal" data-target="#updateModal">
+      Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="updateModalLabel">Edit item</h5>
+
+          </div>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="modal-body">
+            <form class="update-modal-form">
+              <div class="form-group">
+                <label for="updateInputName">Name</label>
+                <input type="text" class="form-control" id="updateInputName" placeholder="Enter item name">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputDate">Date</label>
+                <input type="date" class="form-control" id="updateInputDate" placeholder="">
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="updateCheckActive">
+                <label class="form-check-label" for="updateCheckActive">Active</label>
+              </div>
+              <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-line" id="updateFormSaveBtn">Save changes</button>
+            <button type="button" class="btn btn-line" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
     </div> <!-- end of container -->
