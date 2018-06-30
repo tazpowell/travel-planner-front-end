@@ -41,8 +41,11 @@ const createOneItemBox = function (data) {
 
 // remove one item from html
 const removeOneItemBox = function (itemID) {
-  $('.form-horizontal').find(x => x.id === itemID).remove()
+  console.log('removeOneItemBox itemID is ', itemID)
+  console.log('filter result is ', $('.form-horizontal[data-id=' + itemID + ']'))
+  $('.form-horizontal[data-id=' + itemID + ']').remove()
   console.log('removeOneItemBox ran')
+  // debugger
 }
 
 // Show all items success
@@ -93,8 +96,10 @@ const populateItemInModal = function (itemData) {
 const updateOneSuccess = function (updateResponse) {
   console.log('updateResponse is ', updateResponse)
   $('#updateModal').modal('toggle')
+  // showAllSuccess()
+  const itemID = updateResponse.item.id
+  removeOneItemBox(itemID)
   createOneItemBox(updateResponse)
-  removeOneItemBox(updateResponse.id)
   console.log('updateOneSuccess ran')
 }
 

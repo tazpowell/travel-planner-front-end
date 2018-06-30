@@ -33,11 +33,12 @@ const onShowAllItems = function (event) {
 // OPEN UPDATE MODAL
 const onOpenUpdate = function (event) {
   console.log('open update was clicked')
-  console.log('event.target data id is ', $(event.currentTarget).data('id'))
-  const dataID = $(event.currentTarget).data('id')
+  // console.log('event.target data id is ', $(event.currentTarget).data('id'))
+  const dataID = $(event.currentTarget.parentElement.parentElement).data('id')
   console.log('dataID is ', dataID)
   const itemData = store.items.find(x => x.id === dataID)
   console.log('itemData is ', itemData)
+  debugger
   itemsUi.populateItemInModal(itemData)
 }
 
