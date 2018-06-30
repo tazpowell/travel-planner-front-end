@@ -1,6 +1,15 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const itemsApi = require('./api.js')
 const itemsUi = require('./ui.js')
+const store = require('../store.js')
+
+// Clear modal forms
+const clearModalForms = function () {
+  $('#updateInputName').val('')
+  $('#updateInputDate').val('')
+  document.getElementById('updateCheckActive').checked = false
+  console.log('clearModalForms ran')
+}
 
 // on Create Item
 const onCreateItem = function (event) {
@@ -26,10 +35,30 @@ const onShowAllItems = function (event) {
     .catch(itemsUi.showAllError)
 }
 
+// SHOW ONE ITEM
+// const onShowOneItem = function (event)
+
 // OPEN UPDATE MODAL
 const onOpenUpdate = function (event) {
-  console.log('update item was clicked')
-  console.log('event.target data id is ', $(event.target).data('id'))
+  // data-toggle="modal" data-target="#updateModal"
+  $('#updateModal').modal('show')
+  clearModalForms()
+  // debugger
+  console.log('open update was clicked')
+  console.log('event.target data id is ', $(event.currentTarget).data('id'))
+  const dataID = $(event.currentTarget).data('id')
+  console.log('dataID is ', dataID)
+  const itemData = store.items[dataID - 1]
+  console.log('itemData is ', itemData)
+  // debugger
+  $('#updateInputName').val(itemData.name)
+  $('#updateInputDate').val(itemData.date)
+  if (itemData.active === true) {
+    // $('#updateCheckActive').checked = false
+    document.getElementById('updateCheckActive').checked = true
+  }
+  console.log(document.getElementById('updateCheckActive').checked)
+  // debugger
 }
 
 // UPDATE ITEM

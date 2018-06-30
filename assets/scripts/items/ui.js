@@ -1,4 +1,5 @@
 const showItemsTemplate = require('../templates/item-box.handlebars')
+const store = require('../store.js')
 
 // Create item success
 const createItemSuccess = function (createResponse) {
@@ -38,6 +39,8 @@ const createItemBox = function (data) {
 const showAllSuccess = function (showAllResponse) {
   console.log('showAllResponse is ', showAllResponse)
   createItemBox(showAllResponse)
+  store.items = showAllResponse.items
+  console.log('store.items is ', store.items)
   // debugger
   // for (let i = 0; i < showAllResponse.items.length; i++) {
   //   const table = createTable(showAllResponse.items[i])
