@@ -21,5 +21,6 @@ $(() => {
 
   // individual item buttons
   $('#item-bucket').on('click', '.edit-item-btn', itemsEvents.onOpenUpdate)
-  $('.modal-footer').on('submit', '#updateFormSaveBtn', itemsEvents.onUpdateItem)
+  $('.modal-footer').on('submit', itemsEvents.onUpdateItem)
+  $('.update-modal-form').on('submit', itemsEvents.onUpdateItem)
 })

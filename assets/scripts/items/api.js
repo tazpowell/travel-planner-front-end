@@ -26,10 +26,11 @@ const showAllItems = function () {
 }
 
 // UPDATE ONE
-const updateOneItem = function (id, data) {
+const updateOneItem = function (data) {
+  console.log('updateOneItem data is', data)
   return $.ajax({
     method: 'PATCH',
-    url: config.apiUrl + '/items/' + id,
+    url: config.apiUrl + '/items/' + data.item.id,
     data: data,
     headers: {
       Authorization: 'Token token=' + store.user.token

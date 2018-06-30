@@ -36,52 +36,15 @@
       </div> <!-- end of form-area -->
       <hr>
       <button id="show-all-items-btn" type="button" class="btn-line">Show all items</button>
-      <!-- <div id="items-list">
-        <table class="table" >
-          <thead>
-            <tr>
-              <th></th>
-              <th>Item ID</th>
-              <th>Name</th>
-              <th>Date</th>
-              <th>Active</th>
-            </tr>
-          </thead>
-          <tbody> </tbody>
-        </table>
-      </div> -->
-      <!-- end item-list-->
 
       <div id="item-bucket">
-        <!-- <form class="form-horizontal bucket">
-          <div class="form-group">
-            <label class="control-label col-sm-3" for="id">ID:</label>
-            <div class="col-sm-9">
-              <p class="form-control-static">X</p>
-            </div>
-            <label class="control-label col-sm-3" for="name">Name:</label>
-            <div class="col-sm-9">
-              <p class="form-control-static">Skytree</p>
-            </div>
-            <label class="control-label col-sm-3" for="date">Date:</label>
-            <div class="col-sm-9">
-              <p class="form-control-static">Date</p>
-            </div>
-            <label class="control-label col-sm-3" for="active">Active:</label>
-            <div class="col-sm-9">
-              <p class="form-control-static">True</p>
-            </div>
-            <button type="button" class="btn-line edit-item-btn">Edit</button>
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-          </div>
-        </form> -->
       </div>
 
     <!-- MODAL for EDIT/DELETE  -->
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-line" data-toggle="modal" data-target="#updateModal">
+    <!-- <button type="button" class="btn btn-line" data-toggle="modal" data-target="#updateModal">
       Launch demo modal
-    </button>
+    </button> -->
 
     <!-- Modal -->
     <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
@@ -98,22 +61,21 @@
             <form class="update-modal-form">
               <div class="form-group">
                 <label for="updateInputName">Name</label>
-                <input type="text" class="form-control" id="updateInputName" placeholder="Enter item name">
+                <input type="text" class="form-control" id="updateInputName" name="item[name]" placeholder="Enter item name">
               </div>
               <div class="form-group">
                 <label for="exampleInputDate">Date</label>
-                <input type="date" class="form-control" id="updateInputDate" placeholder="">
+                <input type="date" class="form-control" id="updateInputDate" name="item[date]" placeholder="">
               </div>
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="updateCheckActive">
+                <input type="checkbox" class="form-check-input" id="updateCheckActive" name="item[active]" value="true">
                 <label class="form-check-label" for="updateCheckActive">Active</label>
               </div>
-              <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+              <div class="modal-footer">
+              <button type="submit" class="btn btn-primary" id="updateFormSubmitBtn">Submit</button>
+              <button type="button" class="btn btn-line" data-dismiss="modal">Cancel</button>
+              </div>
             </form>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-line" id="updateFormSaveBtn">Save changes</button>
-            <button type="button" class="btn btn-line" data-dismiss="modal">Cancel</button>
           </div>
         </div>
       </div>

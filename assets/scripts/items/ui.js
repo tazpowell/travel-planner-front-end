@@ -1,6 +1,19 @@
 const showItemsTemplate = require('../templates/item-box.handlebars')
 const store = require('../store.js')
 
+// Clear modal forms
+const clearModalForms = function () {
+  $('#updateInputName').val('')
+  $('#updateInputDate').val('')
+  document.getElementById('updateCheckActive').checked = false
+  console.log('clearModalForms ran')
+}
+
+// Clear item-bucket
+const clearItemBucket = function () {
+  $('#item-bucket').html('')
+}
+
 // Create item success
 const createItemSuccess = function (createResponse) {
   console.log('createResponse is ', createResponse)
@@ -11,34 +24,33 @@ const createItemError = function (createError) {
   console.log('createError is ', createError)
 }
 
-// CREATE html table from one JSON object
-const createTable = function (json) {
-  let bodyRows = ''
-  // create bodyrows
-  bodyRows += '<tr>'
-  // bodyRows += '<td><button type="button" class="btn-line clickable">View</button></td>'
-  bodyRows += '<td>' + json.id + '</td>'
-  bodyRows += '<td>' + json.name + '</td>'
-  bodyRows += '<td>' + json.date + '</td>'
-  bodyRows += '<td>' + json.active + '</td>'
-  bodyRows += '</tr>'
-  // return table html
-  return '<div><table class="table" data-id="' +
-          json.id + '"><thead><tr></tr></thead><tbody>' +
-          bodyRows + '</tbody></table></div>'
-}
-
-// create item div from one JSON object
-const createItemBox = function (data) {
+// create item div for list of all items
+const createAllItemBoxes = function (data) {
   console.log('data is ', data)
   const showItemsHtml = showItemsTemplate({ items: data.items })
   $('#item-bucket').append(showItemsHtml)
 }
 
+// create item div for one item
+const createOneItemBox = function (data) {
+  console.log('createOneItemBox data is ', data)
+  const showItemsHtml = showItemsTemplate({ items: data })
+  $('#item-bucket').append(showItemsHtml)
+  console.log('createOneItemBox ran')
+}
+
+// remove one item from html
+const removeOneItemBox = function (itemID) {
+  $('.form-horizontal').find(x => x.id === itemID).remove()
+  console.log('removeOneItemBox ran')
+}
+
 // Show all items success
 const showAllSuccess = function (showAllResponse) {
+  console.log('showAllSuccess ran')
+  clearItemBucket()
   console.log('showAllResponse is ', showAllResponse)
-  createItemBox(showAllResponse)
+  createAllItemBoxes(showAllResponse)
   store.items = showAllResponse.items
   console.log('store.items is ', store.items)
   // debugger
@@ -54,9 +66,36 @@ const showAllError = function (showAllError) {
   console.log('showAllError is ', showAllError)
 }
 
+// Show one item
+// const showOneItemSuccess = function (itemData) {
+//  console.log('show one item success')
+//  $('.form-horizontal').data('id')
+// }
+
+// Populate modal with one item
+const populateItemInModal = function (itemData) {
+  $('#updateModal').modal('show')
+  clearModalForms()
+  console.log('populateItemInModal itemData is ', itemData)
+  const item = itemData
+  store.update = {item}
+  console.log('store.update inside populateItemInModal is ', store.update)
+  $('#updateInputName').val(itemData.name)
+  $('#updateInputDate').val(itemData.date)
+  if (itemData.active === true) {
+    document.getElementById('updateCheckActive').checked = true
+  }
+  console.log(document.getElementById('updateCheckActive').checked)
+  // debugger
+}
+
 // Update one item success
 const updateOneSuccess = function (updateResponse) {
   console.log('updateResponse is ', updateResponse)
+  $('#updateModal').modal('toggle')
+  createOneItemBox(updateResponse)
+  removeOneItemBox(updateResponse.id)
+  console.log('updateOneSuccess ran')
 }
 
 // Update one item error
@@ -65,12 +104,16 @@ const updateOneError = function (updateOneError) {
 }
 
 module.exports = {
+  clearModalForms,
+  clearItemBucket,
   createItemSuccess,
   createItemError,
-  createItemBox,
+  createAllItemBoxes,
+  createOneItemBox,
+  removeOneItemBox,
   showAllSuccess,
   showAllError,
+  populateItemInModal,
   updateOneSuccess,
-  updateOneError,
-  createTable
+  updateOneError
 }

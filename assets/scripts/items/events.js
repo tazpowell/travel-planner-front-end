@@ -3,14 +3,6 @@ const itemsApi = require('./api.js')
 const itemsUi = require('./ui.js')
 const store = require('../store.js')
 
-// Clear modal forms
-const clearModalForms = function () {
-  $('#updateInputName').val('')
-  $('#updateInputDate').val('')
-  document.getElementById('updateCheckActive').checked = false
-  console.log('clearModalForms ran')
-}
-
 // on Create Item
 const onCreateItem = function (event) {
   event.preventDefault()
@@ -40,33 +32,33 @@ const onShowAllItems = function (event) {
 
 // OPEN UPDATE MODAL
 const onOpenUpdate = function (event) {
-  // data-toggle="modal" data-target="#updateModal"
-  $('#updateModal').modal('show')
-  clearModalForms()
-  // debugger
   console.log('open update was clicked')
   console.log('event.target data id is ', $(event.currentTarget).data('id'))
   const dataID = $(event.currentTarget).data('id')
   console.log('dataID is ', dataID)
-  const itemData = store.items[dataID - 1]
+  const itemData = store.items.find(x => x.id === dataID)
   console.log('itemData is ', itemData)
-  // debugger
-  $('#updateInputName').val(itemData.name)
-  $('#updateInputDate').val(itemData.date)
-  if (itemData.active === true) {
-    // $('#updateCheckActive').checked = false
-    document.getElementById('updateCheckActive').checked = true
-  }
-  console.log(document.getElementById('updateCheckActive').checked)
-  // debugger
+  itemsUi.populateItemInModal(itemData)
 }
 
 // UPDATE ITEM
 const onUpdateItem = function (event) {
+  event.preventDefault()
   console.log('update item was clicked')
   console.log('event is ', event)
+  const data = getFormFields(event.target)
+  // console.log('data is ', data)
+  if (!('active' in data.item)) {
+    data.item.active = false
+  }
+  console.log('data is ', data)
   // debugger
-  itemsApi.updateOneItem()
+  store.update.item.name = data.item.name
+  store.update.item.date = data.item.date
+  store.update.item.active = data.item.active
+  console.log('store.update is', store.update)
+  // debugger
+  itemsApi.updateOneItem(store.update)
     .then(itemsUi.updateOneSuccess)
     .catch(itemsUi.updateOneError)
 }
