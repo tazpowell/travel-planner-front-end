@@ -53,6 +53,18 @@ const onOpenDelete = function (event) {
   // debugger
 }
 
+// DELETE ITEM
+const onConfirmDeleteItem = function (event) {
+  event.preventDefault()
+  console.log('confirm delete was clicked')
+  console.log('event is ', event)
+  console.log('store.delete is ', store.delete)
+  itemsApi.deleteOneItem(store.delete)
+    .then(itemsUi.deleteOneSuccess)
+    .catch(itemsUi.deleteOneError)
+  // debugger
+}
+
 // UPDATE ITEM
 const onUpdateItem = function (event) {
   event.preventDefault()
@@ -80,5 +92,6 @@ module.exports = {
   onShowAllItems,
   onOpenUpdate,
   onOpenDelete,
-  onUpdateItem
+  onUpdateItem,
+  onConfirmDeleteItem
 }

@@ -38,8 +38,20 @@ const updateOneItem = function (data) {
   })
 }
 
+// DELETE ONE
+const deleteOneItem = function (id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/items/' + id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createItem,
   showAllItems,
-  updateOneItem
+  updateOneItem,
+  deleteOneItem
 }

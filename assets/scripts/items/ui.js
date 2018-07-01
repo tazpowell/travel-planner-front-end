@@ -17,6 +17,7 @@ const clearItemBucket = function () {
 // Create item success
 const createItemSuccess = function (createResponse) {
   console.log('createResponse is ', createResponse)
+  // createOneItemBox(createResponse)
 }
 
 // Create item error
@@ -116,10 +117,26 @@ const createDeleteConfAlert = function (itemData) {
     itemData.name +
     '?</a></div>' +
     '<br>' +
-    '<button type="button" class="btn btn-default">Delete</button>' +
+    '<button type="button" class="btn btn-default delete-item-conf-btn">Delete</button>' +
     '<button type="button" class="btn btn-default" data-dismiss="alert" aria-label="Close">Cancel</button>' +
     '</div>').insertAfter('.form-horizontal[data-id=' + itemData.id + ']')
+  store.delete = itemData.id
+  console.log('store.delete is ', store.delete)
   // debugger
+}
+
+// Delete one success
+const deleteOneSuccess = function () {
+  console.log('deleteOneSuccess ran')
+  removeOneItemBox(store.delete)
+  $('.item-alert').alert('close')
+  // insert success alert?
+  // debugger
+}
+
+// Delete one error
+const deleteOneError = function () {
+  console.log('deleteOneError ran')
 }
 
 module.exports = {
@@ -135,5 +152,7 @@ module.exports = {
   populateItemInModal,
   updateOneSuccess,
   updateOneError,
-  createDeleteConfAlert
+  createDeleteConfAlert,
+  deleteOneSuccess,
+  deleteOneError
 }

@@ -22,6 +22,7 @@ $(() => {
   // individual item buttons
   $('#item-bucket').on('click', '.edit-item-btn', itemsEvents.onOpenUpdate)
   $('#item-bucket').on('click', '.delete-item-btn', itemsEvents.onOpenDelete)
+  $('#item-bucket').on('click', '.delete-item-conf-btn', itemsEvents.onConfirmDeleteItem)
 
   // modal submit
   $('.update-modal-form').on('submit', itemsEvents.onUpdateItem)
