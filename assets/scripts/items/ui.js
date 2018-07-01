@@ -24,14 +24,14 @@ const createItemError = function (createError) {
   console.log('createError is ', createError)
 }
 
-// create item div for list of all items
+// Create item div for list of all items
 const createAllItemBoxes = function (data) {
   console.log('data is ', data)
   const showItemsHtml = showItemsTemplate({ items: data.items })
   $('#item-bucket').append(showItemsHtml)
 }
 
-// create item div for one item
+// Create item div for one item
 const createOneItemBox = function (data) {
   console.log('createOneItemBox data is ', data)
   const showItemsHtml = showItemsTemplate({ items: data })
@@ -39,7 +39,7 @@ const createOneItemBox = function (data) {
   console.log('createOneItemBox ran')
 }
 
-// remove one item from html
+// Remove one item from html
 const removeOneItemBox = function (itemID) {
   console.log('removeOneItemBox itemID is ', itemID)
   console.log('filter result is ', $('.form-horizontal[data-id=' + itemID + ']'))
@@ -108,6 +108,20 @@ const updateOneError = function (updateOneError) {
   console.log('updateOneError is ', updateOneError)
 }
 
+// create delete confirmation alert
+const createDeleteConfAlert = function (itemData) {
+  console.log('createDeleteConfAlert itemData is', itemData)
+  $('<div class="alert alert-warning fade in item-alert" role="alert">' +
+    '<div><a href="#" class="alert-link">Are you sure you want to delete ' +
+    itemData.name +
+    '?</a></div>' +
+    '<br>' +
+    '<button type="button" class="btn btn-default">Delete</button>' +
+    '<button type="button" class="btn btn-default" data-dismiss="alert" aria-label="Close">Cancel</button>' +
+    '</div>').insertAfter('.form-horizontal[data-id=' + itemData.id + ']')
+  // debugger
+}
+
 module.exports = {
   clearModalForms,
   clearItemBucket,
@@ -120,5 +134,6 @@ module.exports = {
   showAllError,
   populateItemInModal,
   updateOneSuccess,
-  updateOneError
+  updateOneError,
+  createDeleteConfAlert
 }

@@ -34,12 +34,23 @@ const onShowAllItems = function (event) {
 const onOpenUpdate = function (event) {
   console.log('open update was clicked')
   // console.log('event.target data id is ', $(event.currentTarget).data('id'))
-  const dataID = $(event.currentTarget.parentElement.parentElement).data('id')
+  const dataID = $(event.currentTarget.form).data('id')
   console.log('dataID is ', dataID)
   const itemData = store.items.find(x => x.id === dataID)
   console.log('itemData is ', itemData)
-  debugger
+  // debugger
   itemsUi.populateItemInModal(itemData)
+}
+
+// OPEN DELETE CONFIRMATION
+const onOpenDelete = function (event) {
+  console.log('delete was clicked')
+  const dataID = $(event.currentTarget.form).data('id')
+  console.log('dataID is ', dataID)
+  const itemData = store.items.find(x => x.id === dataID)
+  console.log('itemData is ', itemData)
+  itemsUi.createDeleteConfAlert(itemData)
+  // debugger
 }
 
 // UPDATE ITEM
@@ -68,5 +79,6 @@ module.exports = {
   onCreateItem,
   onShowAllItems,
   onOpenUpdate,
+  onOpenDelete,
   onUpdateItem
 }

@@ -16,8 +16,13 @@ hr {
   border-color: $black;
   border-radius: 2px;
   margin: 20px 0;
-  padding: 20px 0 0;
+  padding: 20px 0;
   width: 300px;
+}
+
+.btn-group {
+  float: left;
+  padding-left: 15px;
 }
 
 .btn-line {
@@ -30,18 +35,17 @@ hr {
   margin-right: 10px;
 }
 
+.clearfix::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
 .control-label {
   color: $light-purple;
   font-size: $labelsize;
   line-height: 16px;
   min-height: 20px;
-}
-
-.edit-item-btn {
-  // display: inline-block;
-  float: left;
-  margin: 0 40px;
-  // position: relative;
 }
 
 .form-area {
@@ -66,4 +70,20 @@ hr {
     padding-right: 0;
     padding-top: 2px;
   }
+
+  .form-group {
+    margin: 0;
+  }
 }
+
+.item-alert {
+  width: 300px;
+}
+
+// .panel-group {
+//   width: 240px;
+// }
+//
+// .panel-title {
+//   float: left;
+// }
