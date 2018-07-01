@@ -17,7 +17,10 @@ const clearItemBucket = function () {
 // Create item success
 const createItemSuccess = function (createResponse) {
   console.log('createResponse is ', createResponse)
-  // createOneItemBox(createResponse)
+  createOneItemBox(createResponse)
+  $('#createItemName').val('')
+  $('#createItemDate').val('')
+  document.getElementById('createCheckActive').checked = false
 }
 
 // Create item error

@@ -16,7 +16,7 @@
       <div class="container col-md-6">
       <!-- CREATE ITEM -->
       <div class="form-area">
-        <form id="create-item-form">
+        <!-- <form id="create-item-form">
           <div class="form-group">
             <label for="item-name">Item name:</label>
             <input id="item-name" class="form-control" name="item[name]" type="text" placeholder="Enter item name">
@@ -32,7 +32,27 @@
             </div>
           </div>
           <button type="submit" class="btn-line">Create</button>
+        </form> -->
+
+        <form id="create-item-form" class="form-horizontal bucket clearfix">
+          <div class="form-group">
+            <label class="control-label col-sm-3" for="name">Name:</label>
+            <div class="col-sm-9 inputs-create-form">
+              <input id="createItemName" class="form-control" name="item[name]" type="text" placeholder="Enter item name">
+            </div>
+            <label class="control-label col-sm-3" for="date">Date:</label>
+            <div class="col-sm-9 inputs-create-form">
+              <input id="createItemDate" class="form-control" name="item[date]" type="date" value="" placeholder="">
+            </div>
+            <label class="control-label col-sm-3" for="active">Active:</label>
+            <div class="col-sm-9 inputs-create-form">
+              <input type="checkbox" class="form-check-input" id="createCheckActive" name="item[active]" value="true">
+            </div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9"><button type="submit" class="btn-line">Create item</button></div>
+          </div>
         </form>
+
       </div> <!-- end of form-area -->
       <hr>
       <button id="show-all-items-btn" type="button" class="btn-line">Show all items</button>
