@@ -1,6 +1,7 @@
 body {
   font-size: $bodyfontsize;
   margin: 50px;
+  padding-top: 30px;
 }
 
 h1 {
@@ -48,6 +49,11 @@ hr {
   min-height: 20px;
 }
 
+.dropdown-menu {
+  padding: 20px 10px;
+  // width: 300px;
+}
+
 .form-area {
   // margin: 50px;
   width: 25vw;
@@ -59,9 +65,9 @@ hr {
   padding: 0 0 20px;
 }
 
-.form-group {
-  margin: 2px 0;
-}
+// .form-group {
+//   margin: 2px 0;
+// }
 
 .form-horizontal {
   // margin-left: 0;
@@ -82,6 +88,16 @@ hr {
 
 .item-alert {
   width: 300px;
+}
+
+.navbar-btn {
+  margin-right: 10px;
+}
+
+.navbar-signout-changepw {
+  position: absolute;
+  right: 30px;
+  top: 0;
 }
 
 // .panel-group {

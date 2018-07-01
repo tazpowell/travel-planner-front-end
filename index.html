@@ -12,6 +12,49 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+      <!--nav bar -->
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">TravelBox</a>
+            <div class="navbar-signout-changepw">
+              <ul class="nav navbar-nav">
+                <!-- CHANGE PW -->
+                <li class="dropdown">
+                    <button class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown">Change Password <span class="caret"></span></button>
+                    <div class="form-area dropdown-menu pull-right">
+                      <form id="change-pw-form">
+                        <div class="form-group">
+                          <label for="old-pw-change">Old password:</label>
+                          <input id="old-pw-change" class="form-control" name="passwords[old]" type="password" placeholder="Old password">
+                        </div>
+                        <div class="form-group">
+                          <label for="new-pw-change">New password:</label>
+                          <input id="new-pw-change" class="form-control" name="passwords[new]" type="password" placeholder="New password">
+                          <span id="change-pw-msg" class="ui-message"></span>
+                        </div>
+                        <button type="submit" class="btn-line">Change Password</button>
+                      </form>
+                    </div><!-- end of form-area -->
+                </li>
+              </ul>
+              <!-- SIGN OUT -->
+              <button id="sign-out-btn" type="button" class="btn btn-default navbar-btn">Sign Out</button>
+            </div>
+
+            <!-- <div class="pull-right">
+              <ul class="nav navbar-nav navbar-right">
+                <button id="sign-out-btn" type="button" class="btn btn-default">Sign Out</button>
+              </ul>
+            </div> -->
+            <!-- end of form-area -->
+          </div>
+
+
+    </div><!-- /.container-fluid -->
+  </nav>
+
       <h1>TravelBox</h1>
       <div class="container col-md-6">
       <!-- CREATE ITEM -->
@@ -181,7 +224,7 @@
 
       <hr>
       <!-- CHANGE PW -->
-      <div class="form-area">
+      <!-- <div class="form-area">
         <form id="change-pw-form">
           <div class="form-group">
             <label for="old-pw-change">Old password:</label>
@@ -194,12 +237,10 @@
           </div>
           <button type="submit" class="btn-line">Change Password</button>
         </form>
-      </div><!-- end of form-area -->
+      </div> -->
+      <!-- end of form-area -->
       <hr>
-      <!-- SIGN OUT -->
-      <div class="form-area">
-        <button id="sign-out-btn" type="button" class="btn-line">Sign Out</button>
-      </div><!-- end of form-area -->
+
     </div> <!-- end of container -->
     </body>
 </html>
