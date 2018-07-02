@@ -16,7 +16,8 @@ hr {
   background-color: lighten($light-purple, 38%);
   border-color: $black;
   border-radius: 2px;
-  margin: 20px 0;
+  float: left;
+  margin: 20px;
   padding: 20px 0;
   width: 300px;
 }
@@ -87,7 +88,10 @@ hr {
 }
 
 .item-alert {
-  width: 300px;
+  float: left;
+  margin: 10px 10px 0;
+  padding: 10px;
+  // width: 300px;
 }
 
 .navbar-btn {

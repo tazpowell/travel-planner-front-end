@@ -14,20 +14,6 @@ const clearItemBucket = function () {
   $('#item-bucket').html('')
 }
 
-// Create item success
-const createItemSuccess = function (createResponse) {
-  console.log('createResponse is ', createResponse)
-  createOneItemBox(createResponse)
-  $('#createItemName').val('')
-  $('#createItemDate').val('')
-  document.getElementById('createCheckActive').checked = false
-}
-
-// Create item error
-const createItemError = function (createError) {
-  console.log('createError is ', createError)
-}
-
 // Create item div for list of all items
 const createAllItemBoxes = function (data) {
   console.log('data is ', data)
@@ -41,6 +27,21 @@ const createOneItemBox = function (data) {
   const showItemsHtml = showItemsTemplate({ items: data })
   $('#item-bucket').append(showItemsHtml)
   console.log('createOneItemBox ran')
+}
+
+// Create item success
+const createItemSuccess = function (createResponse) {
+  console.log('createResponse is ', createResponse)
+  createOneItemBox(createResponse)
+  $('#createItemName').val('')
+  $('#createItemDate').val('')
+  document.getElementById('createCheckActive').checked = false
+  $('.create-dropdown').dropdown('toggle')
+}
+
+// Create item error
+const createItemError = function (createError) {
+  console.log('createError is ', createError)
 }
 
 // Remove one item from html
@@ -115,14 +116,14 @@ const updateOneError = function (updateOneError) {
 // create delete confirmation alert
 const createDeleteConfAlert = function (itemData) {
   console.log('createDeleteConfAlert itemData is', itemData)
-  $('<div class="alert alert-warning fade in item-alert" role="alert">' +
+  $('.form-horizontal[data-id=' + itemData.id + ']').append('<div class="alert alert-warning fade in item-alert" role="alert">' +
     '<div><a href="#" class="alert-link">Are you sure you want to delete ' +
     itemData.name +
     '?</a></div>' +
     '<br>' +
     '<button type="button" class="btn btn-default delete-item-conf-btn">Delete</button>' +
     '<button type="button" class="btn btn-default" data-dismiss="alert" aria-label="Close">Cancel</button>' +
-    '</div>').insertAfter('.form-horizontal[data-id=' + itemData.id + ']')
+    '</div>')
   store.delete = itemData.id
   console.log('store.delete is ', store.delete)
   // debugger

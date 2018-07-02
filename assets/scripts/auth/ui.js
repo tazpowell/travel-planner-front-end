@@ -44,9 +44,10 @@ const signInSuccess = function (signInResponse) {
   store.user = signInResponse.user
   console.log('store.user is ', store.user)
   // console.log('store is ', store)
-  $('#sign-in-msg').html('Signed in as ' + signInResponse.user.email).css('color', '#005f19')
+  $('.navbar-text').html('Signed in as ' + signInResponse.user.email)
   $('#show-all-items-btn').toggleClass('hide')
-  $('#create-item-form').toggleClass('hide')
+  $('#create-new-item-btn').toggleClass('hide')
+  // $('#create-item-form').toggleClass('hide')
   $('.travelBoxTitle').toggleClass('hide')
   $('.navbar-signout-changepw').toggleClass('hide')
   $('.sign-in-sign-up-forms').toggleClass('hide')
@@ -79,17 +80,20 @@ const signOutSuccess = function () {
   console.log('sign out successful')
   // $('#sign-out-msg').html('Successfully signed out as: ' + store.user.email).css('color', '#005f19')
   delete store.user
-  debugger
+  delete store.update
+  delete store.delete
+  // debugger
   // store.clear()
   clearForms()
   clearMessages()
+  $('.navbar-text').html('')
   $('#show-all-items-btn').toggleClass('hide')
-  $('#create-item-form').toggleClass('hide')
+  // $('#create-item-form').toggleClass('hide')
   $('.travelBoxTitle').toggleClass('hide')
   $('.navbar-signout-changepw').toggleClass('hide')
   $('.sign-in-sign-up-forms').toggleClass('hide')
+  $('#create-new-item-btn').toggleClass('hide')
   console.log('store is ', store)
-
 }
 
 // SIGN OUT error
