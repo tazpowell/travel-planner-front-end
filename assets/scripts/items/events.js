@@ -27,8 +27,11 @@ const onShowAllItems = function (event) {
     .catch(itemsUi.showAllError)
 }
 
-// SHOW ONE ITEM
-// const onShowOneItem = function (event)
+// OPEN CREATE DROPDOWN
+const onOpenCreateItem = function (event) {
+  $('.create-dropdown').dropdown('toggle')
+  console.log('onOpenCreateItem ran')
+}
 
 // OPEN UPDATE MODAL
 const onOpenUpdate = function (event) {
@@ -90,6 +93,7 @@ const onUpdateItem = function (event) {
 module.exports = {
   onCreateItem,
   onShowAllItems,
+  onOpenCreateItem,
   onOpenUpdate,
   onOpenDelete,
   onUpdateItem,

@@ -64,7 +64,9 @@ const signInError = function () {
 // Change PW success
 const changePWSuccess = function () {
   clearMessages()
-  $('#change-pw-msg').html('Password was successfully updated for: ' + store.user.email).css('color', '#005f19')
+  console.log('password successfuly updated')
+  // $('#change-pw-msg').html('Password was successfully updated for: ' + store.user.email).css('color', '#005f19')
+  $('#change-pw-btn').dropdown('toggle')
   clearForms()
 }
 // Change PW error

@@ -36,7 +36,7 @@ const createItemSuccess = function (createResponse) {
   $('#createItemName').val('')
   $('#createItemDate').val('')
   document.getElementById('createCheckActive').checked = false
-  $('.create-dropdown').dropdown('toggle')
+  $('#create-new-item-btn').dropdown('toggle')
 }
 
 // Create item error
