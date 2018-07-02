@@ -45,6 +45,11 @@ const signInSuccess = function (signInResponse) {
   console.log('store.user is ', store.user)
   // console.log('store is ', store)
   $('#sign-in-msg').html('Signed in as ' + signInResponse.user.email).css('color', '#005f19')
+  $('#show-all-items-btn').toggleClass('hide')
+  $('#create-item-form').toggleClass('hide')
+  $('.travelBoxTitle').toggleClass('hide')
+  $('.navbar-signout-changepw').toggleClass('hide')
+  $('.sign-in-sign-up-forms').toggleClass('hide')
   clearForms()
 }
 
@@ -72,10 +77,19 @@ const changePWError = function () {
 const signOutSuccess = function () {
   // clearMessages()
   console.log('sign out successful')
-  $('#sign-out-msg').html('Successfully signed out as: ' + store.user.email).css('color', '#005f19')
+  // $('#sign-out-msg').html('Successfully signed out as: ' + store.user.email).css('color', '#005f19')
   delete store.user
+  debugger
+  // store.clear()
   clearForms()
   clearMessages()
+  $('#show-all-items-btn').toggleClass('hide')
+  $('#create-item-form').toggleClass('hide')
+  $('.travelBoxTitle').toggleClass('hide')
+  $('.navbar-signout-changepw').toggleClass('hide')
+  $('.sign-in-sign-up-forms').toggleClass('hide')
+  console.log('store is ', store)
+
 }
 
 // SIGN OUT error

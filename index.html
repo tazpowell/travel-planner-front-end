@@ -18,7 +18,7 @@
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <a class="navbar-brand" href="#">TravelBox</a>
-            <div class="navbar-signout-changepw">
+            <div class="navbar-signout-changepw hide">
               <ul class="nav navbar-nav">
                 <!-- CHANGE PW -->
                 <li class="dropdown">
@@ -55,7 +55,7 @@
     </div><!-- /.container-fluid -->
   </nav>
 
-      <h1>TravelBox</h1>
+      <h1 class="travelBoxTitle">TravelBox</h1>
       <div class="container col-md-6">
       <!-- CREATE ITEM -->
       <div class="form-area">
@@ -77,7 +77,7 @@
           <button type="submit" class="btn-line">Create</button>
         </form> -->
 
-        <form id="create-item-form" class="form-horizontal bucket clearfix">
+        <form id="create-item-form" class="form-horizontal bucket clearfix hide">
           <div class="form-group">
             <label class="control-label col-sm-3" for="name">Name:</label>
             <div class="col-sm-9 inputs-create-form">
@@ -98,7 +98,7 @@
 
       </div> <!-- end of form-area -->
       <hr>
-      <button id="show-all-items-btn" type="button" class="btn-line">Show all items</button>
+      <button id="show-all-items-btn" type="button" class="btn-line hide">Show all items</button>
 
       <div id="item-bucket">
       </div>
@@ -183,7 +183,7 @@
 
     </div> <!-- end of container -->
 
-    <div class="container col-md-6">
+    <div class="container col-md-6 sign-in-sign-up-forms">
       <!-- SIGN UP -->
       <div class="form-area">
         <form id="sign-up-form">
