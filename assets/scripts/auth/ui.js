@@ -49,9 +49,10 @@ const signInSuccess = function (signInResponse) {
   $('#show-all-items-btn').toggleClass('hide')
   $('#create-new-item-btn').toggleClass('hide')
   // $('#create-item-form').toggleClass('hide')
-  $('.travelBoxTitle').toggleClass('hide')
+  $('.landing-intro').toggleClass('hide')
   $('.navbar-signout-changepw').toggleClass('hide')
   $('.sign-in-sign-up-forms').toggleClass('hide')
+  $('.navbar-default').toggleClass('hide')
   clearForms()
 }
 
@@ -93,10 +94,11 @@ const signOutSuccess = function () {
   $('.navbar-text').html('')
   $('#show-all-items-btn').toggleClass('hide')
   // $('#create-item-form').toggleClass('hide')
-  $('.travelBoxTitle').toggleClass('hide')
+  $('.landing-intro').toggleClass('hide')
   $('.navbar-signout-changepw').toggleClass('hide')
   $('.sign-in-sign-up-forms').toggleClass('hide')
   $('#create-new-item-btn').toggleClass('hide')
+  $('.navbar-default').toggleClass('hide')
   console.log('store is ', store)
   itemsUi.clearItemBucket()
 }

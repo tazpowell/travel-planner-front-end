@@ -1,11 +1,14 @@
 body {
+  font-family: $font-family-sans;
   font-size: $bodyfontsize;
   margin: 50px;
   padding-top: 30px;
 }
 
 h1 {
-
+  color: $sea-green;
+  font-family: $font-family-cursive;
+  font-size: $font-size-h1;
 }
 
 hr {
@@ -29,10 +32,11 @@ hr {
 
 .btn-line {
   background-color: transparent;
-  border-color: $light-purple;
+  border-color: $sea-green;
   border-radius: 2px;
-  color: $light-purple;
+  color: $sea-green;
   font-size: 16px;
+  font-weight: 700;
   letter-spacing: 1px;
   margin-right: 10px;
 }
@@ -57,7 +61,7 @@ hr {
 
 .form-area {
   // margin: 50px;
-  width: 25vw;
+  width: 420px;
 }
 
 .form-control-static {
@@ -94,8 +98,29 @@ hr {
   // width: 300px;
 }
 
+.landing-intro {
+  float: left;
+  margin: 0 0 40px;
+
+  p {
+    font-size: 20px;
+    padding-right: 40px;
+  }
+}
+
 .navbar-btn {
   margin-right: 10px;
+}
+
+.navbar-default {
+  .navbar-brand {
+    color: $sea-green;
+    font-family: $font-family-cursive;
+  }
+
+  .navbar-text {
+    color: $sea-green;
+  }
 }
 
 .navbar-signout-changepw {
@@ -104,10 +129,26 @@ hr {
   top: 0;
 }
 
-// .panel-group {
-//   width: 240px;
-// }
-//
-// .panel-title {
-//   float: left;
-// }
+.sign-in-sign-up-forms {
+  float: right;
+}
+
+@media only screen and (max-width: 580px) {
+  .form-area {
+    width: 100%;
+  }
+
+  .sign-in-sign-up-forms {
+    float: none;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .form-area {
+    width: 100vw;
+  }
+
+  .sign-in-sign-up-forms {
+    float: none;
+  }
+}

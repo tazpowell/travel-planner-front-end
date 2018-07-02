@@ -3,6 +3,8 @@
     <head>
       <title>TravelBox</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,700" rel="stylesheet">
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -14,7 +16,7 @@
 
     <body>
       <!--nav bar -->
-      <nav class="navbar navbar-default navbar-fixed-top">
+      <nav class="navbar navbar-default navbar-fixed-top hide">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -83,16 +85,13 @@
         </div> <!-- /.container-fluid -->
       </nav>
 
+      <div class="col-md-6 col-sm-12 landing-intro">
+      <!--landing page title  -->
       <h1 class="travelBoxTitle">TravelBox</h1>
-      <div class="container col-md-12">
-
-
-
-
-
-      <div id="item-bucket">
+      <p>Use TravelBox to keep track of itinerary items for your upcoming trip!</p>
       </div>
 
+      <div class="container col-md-6 col-sm-12 landing-content">
         <!-- <form class="form-horizontal bucket clearfix" data-id="{{item.id}}">
           <div class="form-group">
             <label class="control-label col-sm-3" for="id">ID:</label>
@@ -170,7 +169,7 @@
         </div>
       </div>
 
-      <div class="sign-in-sign-up-forms">
+      <div class="sign-in-sign-up-forms col-sm-12">
         <!-- SIGN UP -->
         <div class="form-area">
           <form id="sign-up-form">
@@ -212,7 +211,11 @@
       </div> <!-- end of sign-in-sign-up-forms -->
 
 
-    </div> <!-- end of container -->
+    </div> <!-- end of landing-content container -->
+
+    <div id="item-bucket" class="col-sm-12">
+    </div>
+
 
 
     </body>
