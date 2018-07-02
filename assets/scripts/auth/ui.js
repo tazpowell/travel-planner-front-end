@@ -1,4 +1,5 @@
 const store = require('../store')
+const itemsUi = require('../items/ui.js')
 
 // Clear form fields
 const clearForms = function () {
@@ -84,6 +85,7 @@ const signOutSuccess = function () {
   delete store.user
   delete store.update
   delete store.delete
+  delete store.items
   // debugger
   // store.clear()
   clearForms()
@@ -96,6 +98,7 @@ const signOutSuccess = function () {
   $('.sign-in-sign-up-forms').toggleClass('hide')
   $('#create-new-item-btn').toggleClass('hide')
   console.log('store is ', store)
+  itemsUi.clearItemBucket()
 }
 
 // SIGN OUT error
