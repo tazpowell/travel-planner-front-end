@@ -1,5 +1,6 @@
 const store = require('../store')
 const itemsUi = require('../items/ui.js')
+const itemsApi = require('../items/api.js')
 
 // Clear form fields
 const clearForms = function () {
@@ -47,13 +48,16 @@ const signInSuccess = function (signInResponse) {
   // console.log('store is ', store)
   $('.navbar-text').html('Signed in as ' + signInResponse.user.email)
   $('#show-all-items-btn').toggleClass('hide')
+  $('#hide-all-items-btn').toggleClass('hide')
   $('#create-new-item-btn').toggleClass('hide')
-  // $('#create-item-form').toggleClass('hide')
   $('.landing-intro').toggleClass('hide')
   $('.navbar-signout-changepw').toggleClass('hide')
   $('.sign-in-sign-up-forms').toggleClass('hide')
   $('.navbar-default').toggleClass('hide')
   clearForms()
+  itemsApi.showAllItems()
+    .then(itemsUi.showAllSuccess)
+    .catch(itemsUi.showAllError)
 }
 
 // SIGN IN error
@@ -93,7 +97,7 @@ const signOutSuccess = function () {
   clearMessages()
   $('.navbar-text').html('')
   $('#show-all-items-btn').toggleClass('hide')
-  // $('#create-item-form').toggleClass('hide')
+  $('#hide-all-items-btn').toggleClass('hide')
   $('.landing-intro').toggleClass('hide')
   $('.navbar-signout-changepw').toggleClass('hide')
   $('.sign-in-sign-up-forms').toggleClass('hide')

@@ -19,6 +19,7 @@ $(() => {
   // $('#create-new-item-btn').on('click', itemsEvents.onOpenCreateItem)
   $('#create-item-form').on('submit', itemsEvents.onCreateItem)
   $('#show-all-items-btn').on('click', itemsEvents.onShowAllItems)
+  $('#hide-all-items-btn').on('click', itemsEvents.onHideAllItems)
 
   // individual item buttons
   $('#item-bucket').on('click', '.edit-item-btn', itemsEvents.onOpenUpdate)

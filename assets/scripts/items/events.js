@@ -27,6 +27,12 @@ const onShowAllItems = function (event) {
     .catch(itemsUi.showAllError)
 }
 
+// HIDE ALL ITEMS
+const onHideAllItems = function () {
+  console.log('onHideAllItems ran')
+  itemsUi.clearItemBucket()
+}
+
 // OPEN CREATE DROPDOWN
 const onOpenCreateItem = function (event) {
   $('.create-dropdown').dropdown('toggle')
@@ -93,6 +99,7 @@ const onUpdateItem = function (event) {
 module.exports = {
   onCreateItem,
   onShowAllItems,
+  onHideAllItems,
   onOpenCreateItem,
   onOpenUpdate,
   onOpenDelete,

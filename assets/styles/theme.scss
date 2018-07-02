@@ -133,12 +133,12 @@ hr {
 }
 
 .navbar-default {
-  &.navbar-brand {
+  .navbar-brand {
     color: $sea-green;
     font-family: $font-family-cursive;
   }
 
-  &.navbar-text {
+  .navbar-text {
     color: $sea-green;
   }
 }
