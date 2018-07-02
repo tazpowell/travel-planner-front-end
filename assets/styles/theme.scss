@@ -1,3 +1,7 @@
+a {
+  color: $sea-green;
+}
+
 body {
   font-family: $font-family-sans;
   font-size: $bodyfontsize;
@@ -64,6 +68,10 @@ hr {
 
 .create-label {
   color: $sea-green;
+}
+
+.delete-item-conf-btn {
+  padding-right: 10px;
 }
 
 .dropdown-menu {
@@ -145,6 +153,10 @@ hr {
   float: right;
 }
 
+.tab-content {
+  margin-top: 50px;
+}
+
 // @media (min-width: 768px) {
 //   .form-horizontal {
 //     &.control-label {
@@ -159,6 +171,12 @@ hr {
       padding-right: 0;
       padding-top: 0;
     }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sign-in-sign-up-forms {
+    float: none;
   }
 }
 

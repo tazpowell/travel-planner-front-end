@@ -170,43 +170,55 @@
       </div>
 
       <div class="sign-in-sign-up-forms col-sm-12">
-        <!-- SIGN UP -->
-        <div class="form-area">
-          <form id="sign-up-form">
-            <div class="form-group">
-              <label for="email-signup">Email:</label>
-              <input id="email-signup" class="form-control" name="credentials[email]" type="email" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-              <label for="pwd-signup">Password:</label>
-              <input id="pwd-signup" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password">
-            </div>
-            <div class="form-group">
-              <label for="pwd-conf-signup">Confirm password:</label>
-              <input id="pwd-conf-signup" class="form-control" name="credentials[password_confirmation]" type="password" value="" placeholder="Retype password">
-              <span id="sign-up-msg" class="ui-message"></span>
-            </div>
-            <button type="submit" class="btn-line">Sign Up</button>
-          </form>
-        </div> <!-- end of form-area -->
-        <hr>
+      <!-- tabs sign up sign in  -->
+        <ul id="nav-sign-up-in" class="nav nav-tabs on-sign-in">
+          <li class="active"><a data-toggle="tab" href="#tabSignIn">Sign In</a></li>
+          <li><a data-toggle="tab" href="#tabSignUp">Sign Up</a></li>
+        </ul>
 
-        <!-- SIGN IN -->
-        <div class="form-area">
-          <!-- <button id="guest-btn" type="button" class="btn-line">Sign in as Guest</button> -->
-          <form id="sign-in-form">
-            <div class="form-group">
-              <label for="email-signin">Email:</label>
-              <input id="email-signin" class="form-control" name="credentials[email]" type="email" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-              <label for="pwd-signin">Password:</label>
-              <input id="pwd-signin" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password">
-              <span id="sign-in-msg" class="ui-message"></span>
-            </div>
-            <button type="submit" class="btn-line">Sign In</button>
-          </form>
-        </div><!-- end of form-area -->
+        <div class="tab-content on-sign-in">
+
+          <div id="tabSignIn" class="tab-pane fade in active">
+            <!-- SIGN IN -->
+            <div class="form-area">
+              <!-- <button id="guest-btn" type="button" class="btn-line">Sign in as Guest</button> -->
+              <form id="sign-in-form">
+                <div class="form-group">
+                  <label for="email-signin">Email:</label>
+                  <input id="email-signin" class="form-control" name="credentials[email]" type="email" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="pwd-signin">Password:</label>
+                  <input id="pwd-signin" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password">
+                  <span id="sign-in-msg" class="ui-message"></span>
+                </div>
+                <button type="submit" class="btn-line">Sign In</button>
+              </form>
+            </div><!-- end of form-area -->
+          </div> <!-- end tabSignIn -->
+
+          <div id="tabSignUp" class="tab-pane fade">
+            <!-- SIGN UP -->
+            <div class="form-area">
+              <form id="sign-up-form">
+                <div class="form-group">
+                  <label for="email-signup">Email:</label>
+                  <input id="email-signup" class="form-control" name="credentials[email]" type="email" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="pwd-signup">Password:</label>
+                  <input id="pwd-signup" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password">
+                </div>
+                <div class="form-group">
+                  <label for="pwd-conf-signup">Confirm password:</label>
+                  <input id="pwd-conf-signup" class="form-control" name="credentials[password_confirmation]" type="password" value="" placeholder="Retype password">
+                  <span id="sign-up-msg" class="ui-message"></span>
+                </div>
+                <button type="submit" class="btn-line">Sign Up</button>
+              </form>
+            </div> <!-- end of form-area -->
+          </div> <!-- end tabSignUp -->
+        </div><!-- end tab-content -->
 
       </div> <!-- end of sign-in-sign-up-forms -->
 
