@@ -23,6 +23,10 @@ hr {
   margin: 20px;
   padding: 20px 0;
   width: 300px;
+
+  &.active-color {
+    background-color: lighten($sea-green, 40%);
+  }
 }
 
 .btn-group {
@@ -52,6 +56,14 @@ hr {
   font-size: $labelsize;
   line-height: 16px;
   min-height: 20px;
+
+  &.active-label {
+    color: $sea-green;
+  }
+}
+
+.create-label {
+  color: $sea-green;
 }
 
 .dropdown-menu {
@@ -76,10 +88,10 @@ hr {
 
 .form-horizontal {
   // margin-left: 0;
-  .control-label {
+  &.control-label {
     margin-left: 0;
     padding-right: 0;
-    padding-top: 2px;
+    padding-top: 0;
   }
 
   .form-group {
@@ -113,12 +125,12 @@ hr {
 }
 
 .navbar-default {
-  .navbar-brand {
+  &.navbar-brand {
     color: $sea-green;
     font-family: $font-family-cursive;
   }
 
-  .navbar-text {
+  &.navbar-text {
     color: $sea-green;
   }
 }
@@ -131,6 +143,23 @@ hr {
 
 .sign-in-sign-up-forms {
   float: right;
+}
+
+// @media (min-width: 768px) {
+//   .form-horizontal {
+//     &.control-label {
+//       padding-top: 0;
+//     }
+//   }
+// }
+
+@media (min-width: 768px) {
+  .form-horizontal {
+    .control-label {
+      padding-right: 0;
+      padding-top: 0;
+    }
+  }
 }
 
 @media only screen and (max-width: 580px) {

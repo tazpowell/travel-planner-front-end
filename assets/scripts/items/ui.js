@@ -1,5 +1,6 @@
 const showItemsTemplate = require('../templates/item-box.handlebars')
 const store = require('../store.js')
+const itemsApi = require('./api.js')
 
 // Clear modal forms
 const clearModalForms = function () {
@@ -14,18 +15,59 @@ const clearItemBucket = function () {
   $('#item-bucket').html('')
 }
 
+// Chech active statsu to add active-color and active-label classes
+const checkActiveStatus = function (data) {
+  console.log('checkActiveStatus data is ', data)
+  if (data.querySelector('.item-active-status').innerHTML === 'true') {
+    data.classList.add('active-color')
+    const labelsSelected = data.getElementsByClassName('control-label')
+    for (let i = 0; i < labelsSelected.length; i++) {
+      labelsSelected[i].classList.add('active-label')
+    }
+  }
+  // for (let i = 0; i < data.length; i++) {
+  //   if (data[i].querySelector('.item-active-status').innerHTML === 'true') {
+  //     data[i].classList.add('active-color')
+  //     const labelsSelected = data[i].getElementsByClassName('control-label')
+  //     for (let i = 0; i < labelsSelected.length; i++) {
+  //       labelsSelected[i].classList.add('active-label')
+  //     }
+  //   }
+  // }
+}
+
 // Create item div for list of all items
 const createAllItemBoxes = function (data) {
   console.log('data is ', data)
   const showItemsHtml = showItemsTemplate({ items: data.items })
   $('#item-bucket').append(showItemsHtml)
+  const itemsCreated = document.getElementsByClassName('bucket')
+  // converts htmlCollection into array
+  const arr = Array.prototype.slice.call(itemsCreated)
+  console.log('itemsCreated is', itemsCreated)
+  console.log('arr is ', arr)
+  arr.forEach(function (x) {
+    checkActiveStatus(x)
+  })
+  // for (let i = 0; i < itemsCreated.length; i++) {
+  //   if (itemsCreated[i].querySelector('.item-active-status').innerHTML === 'true') {
+  //     itemsCreated[i].classList.add('active-color')
+  //     const labelsSelected = itemsCreated[i].getElementsByClassName('control-label')
+  //     for (let i = 0; i < labelsSelected.length; i++) {
+  //       labelsSelected[i].classList.add('active-label')
+  //     }
+  //   }
+  // }
+  // debugger
 }
 
 // Create item div for one item
 const createOneItemBox = function (data) {
   console.log('createOneItemBox data is ', data)
   const showItemsHtml = showItemsTemplate({ items: data })
+  console.log('showItemsHtml is ', showItemsHtml)
   $('#item-bucket').append(showItemsHtml)
+  // checkActiveStatus()
   console.log('createOneItemBox ran')
 }
 
@@ -101,10 +143,12 @@ const populateItemInModal = function (itemData) {
 const updateOneSuccess = function (updateResponse) {
   console.log('updateResponse is ', updateResponse)
   $('#updateModal').modal('toggle')
-  // showAllSuccess()
-  const itemID = updateResponse.item.id
-  removeOneItemBox(itemID)
-  createOneItemBox(updateResponse)
+  itemsApi.showAllItems()
+    .then(showAllSuccess)
+    .catch(showAllError)
+  // const itemID = updateResponse.item.id
+  // removeOneItemBox(itemID)
+  // createOneItemBox(updateResponse)
   console.log('updateOneSuccess ran')
 }
 
