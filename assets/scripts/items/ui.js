@@ -59,6 +59,7 @@ const createOneItemBox = function (data) {
 const createItemSuccess = function (createResponse) {
   console.log('createResponse is ', createResponse)
   createOneItemBox(createResponse)
+  // console.log('store.items is ', store.items)
   $('#createItemName').val('')
   $('#createItemDate').val('')
   document.getElementById('createCheckActive').checked = false

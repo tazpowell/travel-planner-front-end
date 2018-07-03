@@ -17,6 +17,7 @@ const onCreateItem = function (event) {
   itemsApi.createItem(data)
     .then(itemsUi.createItemSuccess)
     .catch(itemsUi.createItemError)
+    .then(onShowAllItems)
 }
 
 // SHOW ALL ITEMS from server
