@@ -38,7 +38,6 @@
             <!-- collapse navbar-collapse -->
             <div class="" id="travelbox-navbar-collapse">
 
-              <!-- <ul class="nav navbar-nav"> -->
                 <!--SHOW ALL  -->
                 <button id="show-all-items-btn" type="button" class="btn btn-default navbar-btn">Show all items</button>
 
@@ -46,9 +45,6 @@
                 <button id="hide-all-items-btn" type="button" class="btn btn-default navbar-btn">Hide all items</button>
 
                 <!-- CREATE  -->
-                <!-- <li> -->
-                <!-- <ul class="nav navbar-nav"> -->
-
                   <div class="dropdown create-dropdown navbar-left">
                       <button id="create-new-item-btn" class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown">Create Item <span class="caret"></span></button>
                       <div class="form-area dropdown-menu" role="menu">
@@ -56,7 +52,7 @@
                           <div class="form-group">
                             <label class="control-label create-label col-sm-2" for="name">Name:</label>
                             <div class="col-sm-10 inputs-create-form">
-                              <input id="createItemName" class="form-control" name="item[name]" type="text" placeholder="Enter item name">
+                              <input id="createItemName" class="form-control" name="item[name]" type="text" placeholder="Enter item name" required>
                             </div>
                             <label class="control-label create-label col-sm-2" for="date">Date:</label>
                             <div class="col-sm-10 inputs-create-form">
@@ -70,12 +66,12 @@
                             <div class="col-sm-10"><button type="submit" class="btn-line">Create item</button></div>
                           </div>
                         </form>
+                        <!-- create form alert  -->
+                        <div class="alert alert-danger create-alert-danger hide" role="alert"></div>
                       </div><!-- end of div class form-area -->
                   </div>
-                <!-- </ul> -->
-                <!-- </li> -->
+
               <!-- end of show all and create  -->
-            <!-- </ul> -->
 
               <!-- <div class=""> -->
                 <ul class="nav navbar-nav navbar-right navbar-signout-changepw">
@@ -86,15 +82,17 @@
                         <form id="change-pw-form">
                           <div class="form-group">
                             <label for="old-pw-change">Old password:</label>
-                            <input id="old-pw-change" class="form-control" name="passwords[old]" type="password" placeholder="Old password">
+                            <input id="old-pw-change" class="form-control" name="passwords[old]" type="password" placeholder="Old password" required>
                           </div>
                           <div class="form-group">
                             <label for="new-pw-change">New password:</label>
-                            <input id="new-pw-change" class="form-control" name="passwords[new]" type="password" placeholder="New password">
+                            <input id="new-pw-change" class="form-control" name="passwords[new]" type="password" placeholder="New password" required>
                             <span id="change-pw-msg" class="ui-message"></span>
                           </div>
                           <button type="submit" class="btn-line">Change Password</button>
                         </form>
+                        <!-- change pw form alert  -->
+                        <div class="alert alert-danger change-pw-alert-danger hide" role="alert"></div>
                       </div><!-- end of form-area -->
                   </li>
                   <!-- SIGN OUT -->
@@ -112,7 +110,11 @@
 
       <div class="alerts-container">
         <!-- success alert -->
-        <div class="alert alert-success hide" role="alert">
+        <div class="alert alert-success alert-success-full-width hide" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <!-- danger alert -->
+        <div class="alert alert-danger alert-danger-full-width hide" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
       </div>
@@ -155,7 +157,7 @@
           </div>
         </form> -->
 
-        <!-- <div class="alert alert-warning fade in item-alert" role="alert">
+        <!-- <div class="alert alert-danger fade in item-alert" role="alert">
             <div><a href="#" class="alert-link">Are you sure you want to delete the item?</a></div>
             <br>
             <button type="button" class="btn btn-default">Delete</button>
@@ -222,6 +224,8 @@
                   </div>
                   <button type="submit" class="btn-line">Sign In</button>
                 </form>
+                <!-- sign up form alert  -->
+                <div class="alert alert-danger sign-in-alert-danger hide" role="alert"></div>
               </div><!-- end of form-area -->
             </div> <!-- end tabSignIn -->
 
@@ -244,6 +248,8 @@
                   </div>
                   <button type="submit" class="btn-line">Sign Up</button>
                 </form>
+                <!-- sign up form alert  -->
+                <div class="alert alert-danger sign-up-alert-danger hide" role="alert"></div>
               </div> <!-- end of form-area -->
             </div> <!-- end tabSignUp -->
           </div><!-- end tab-content -->

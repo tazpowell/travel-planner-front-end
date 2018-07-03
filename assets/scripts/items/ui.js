@@ -51,7 +51,7 @@ const createOneItemBox = function (data) {
   const checkNewItem = $('#item-bucket .bucket').last()
   console.log('checkNewItem[0] is ', checkNewItem[0])
   checkActiveStatus(checkNewItem[0])
-  debugger
+  // debugger
   console.log('createOneItemBox ran')
 }
 
@@ -68,6 +68,7 @@ const createItemSuccess = function (createResponse) {
 // Create item error
 const createItemError = function (createError) {
   console.log('createError is ', createError)
+  $('.create-alert-warning').html('Create item unsuccessful').toggleClass('hide').fadeOut(2000)
 }
 
 // Remove one item from html

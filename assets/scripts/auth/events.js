@@ -11,12 +11,12 @@ const onSignUp = function (event) {
   const data = getFormFields(event.target)
   // console.log('data is', data)
   // check if passwords matches
-  // if (data.credentials.password === data.credentials.password_confirmation) {
-  // } else {
-  //   authUi.pwNotMatching()
-  //   // console.log('passwords do not match')
-  //   return
-  // }
+  if (data.credentials.password === data.credentials.password_confirmation) {
+  } else {
+    authUi.pwNotMatching()
+    // console.log('passwords do not match')
+    return
+  }
   store.credentials = {}
   store.credentials.password = data.credentials.password
   // api
@@ -41,11 +41,11 @@ const onSignIn = function (event) {
 const onChangePW = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  // if (data.passwords.old !== data.passwords.new) {
-  // } else {
-  //   authUi.pwMatching()
-  //   return
-  // }
+  if (data.passwords.old !== data.passwords.new) {
+  } else {
+    authUi.pwMatching()
+    return
+  }
   // api
   authApi.changePW(data)
     .then(authUi.changePWSuccess)
