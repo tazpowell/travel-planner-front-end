@@ -15,7 +15,7 @@ const clearItemBucket = function () {
   $('#item-bucket').html('')
 }
 
-// Chech active statsu to add active-color and active-label classes
+// Chech active status to add active-color and active-label classes
 const checkActiveStatus = function (data) {
   console.log('checkActiveStatus data is ', data)
   if (data.querySelector('.item-active-status').innerHTML === 'true') {
@@ -25,15 +25,6 @@ const checkActiveStatus = function (data) {
       labelsSelected[i].classList.add('active-label')
     }
   }
-  // for (let i = 0; i < data.length; i++) {
-  //   if (data[i].querySelector('.item-active-status').innerHTML === 'true') {
-  //     data[i].classList.add('active-color')
-  //     const labelsSelected = data[i].getElementsByClassName('control-label')
-  //     for (let i = 0; i < labelsSelected.length; i++) {
-  //       labelsSelected[i].classList.add('active-label')
-  //     }
-  //   }
-  // }
 }
 
 // Create item div for list of all items
@@ -49,25 +40,18 @@ const createAllItemBoxes = function (data) {
   arr.forEach(function (x) {
     checkActiveStatus(x)
   })
-  // for (let i = 0; i < itemsCreated.length; i++) {
-  //   if (itemsCreated[i].querySelector('.item-active-status').innerHTML === 'true') {
-  //     itemsCreated[i].classList.add('active-color')
-  //     const labelsSelected = itemsCreated[i].getElementsByClassName('control-label')
-  //     for (let i = 0; i < labelsSelected.length; i++) {
-  //       labelsSelected[i].classList.add('active-label')
-  //     }
-  //   }
-  // }
-  // debugger
 }
 
 // Create item div for one item
 const createOneItemBox = function (data) {
   console.log('createOneItemBox data is ', data)
   const showItemsHtml = showItemsTemplate({ items: data })
-  console.log('showItemsHtml is ', showItemsHtml)
+  // console.log('showItemsHtml is ', showItemsHtml)
   $('#item-bucket').append(showItemsHtml)
-  // checkActiveStatus()
+  const checkNewItem = $('#item-bucket .bucket').last()
+  console.log('checkNewItem[0] is ', checkNewItem[0])
+  checkActiveStatus(checkNewItem[0])
+  debugger
   console.log('createOneItemBox ran')
 }
 
