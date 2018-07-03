@@ -143,6 +143,12 @@ hr {
   }
 }
 
+.navbar-nav {
+  display: inline-block;
+  margin: 0;
+  float: none;
+}
+
 .navbar-signout-changepw {
   position: absolute;
   right: 30px;
@@ -150,7 +156,7 @@ hr {
 }
 
 .sign-in-sign-up-forms {
-  float: right;
+  // float: right;
 }
 
 .tab-content {
@@ -165,6 +171,10 @@ hr {
 //   }
 // }
 
+@media only screen and (max-width: 994px) {
+  //
+}
+
 @media (min-width: 768px) {
   .form-horizontal {
     .control-label {
@@ -172,11 +182,30 @@ hr {
       padding-top: 0;
     }
   }
+
+  // .navbar-collapse {
+  //   width: 100vw;
+  // }
+  .navbar-form {
+    .form-control {
+      width: 100%;
+    }
+  }
+
+  .navbar-header {
+    float: none;
+  }
 }
 
 @media only screen and (max-width: 768px) {
   .sign-in-sign-up-forms {
     float: none;
+  }
+
+  .navbar-signout-changepw {
+    position: none;
+    right: auto;
+    top: auto;
   }
 }
 
