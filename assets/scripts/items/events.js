@@ -34,7 +34,7 @@ const onHideAllItems = function () {
   if ($('#item-bucket').is(':empty')) {
     $('.full-width-alert-container').html('<div class="alert alert-success alert-user-items-empty">' +
     '<button type="button" class="close" aria-hidden="true" data-dismiss="alert">&times;</button>' +
-        'No items to clear. </div>')
+        'No items to hide. </div>')
     $('.alert-user-items-empty').delay(3000).fadeOut()
     console.log('items is empty')
     // debugger

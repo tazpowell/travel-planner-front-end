@@ -123,6 +123,13 @@ hr {
 
 .inputs-create-form {
   margin-bottom: 10px;
+
+  p {
+    color: lighten($black, 10%);
+    display: inline-block;
+    font-size: 12px;
+    padding-left: 10px;
+  }
 }
 
 .item-alert {
