@@ -21,6 +21,12 @@ hr {
 
 .alert {
   margin-top: 10px;
+
+  p {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .bucket {
@@ -111,6 +117,10 @@ hr {
   }
 }
 
+// .full-width-alert-container {
+//   height: 80px;
+// }
+
 .inputs-create-form {
   margin-bottom: 10px;
 }
@@ -122,13 +132,22 @@ hr {
   // width: 300px;
 }
 
+.langing-space-above {
+  margin-top: 50px;
+}
+
+// .landing-content {
+//   margin: 40px 0;
+// }
+
 .landing-intro {
   float: left;
-  margin: 0 0 40px;
+  margin: 40px 0;
 
   p {
-    font-size: 20px;
-    padding-right: 40px;
+    font-size: 22px;
+    padding-right: 60px;
+    padding-top: 10px;
   }
 }
 
@@ -202,6 +221,10 @@ hr {
 }
 
 @media only screen and (max-width: 768px) {
+  // .full-width-alert-container {
+  //   height: auto;
+  // }
+
   .sign-in-sign-up-forms {
     float: none;
   }

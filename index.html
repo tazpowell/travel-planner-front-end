@@ -66,8 +66,8 @@
                             <div class="col-sm-10"><button type="submit" class="btn-line">Create item</button></div>
                           </div>
                         </form>
-                        <!-- create form alert  -->
-                        <div class="alert alert-danger create-alert-danger hide" role="alert"></div>
+                        <!-- create item form alert container  -->
+                        <div class="create-item-alert-container"></div>
                       </div><!-- end of div class form-area -->
                   </div>
 
@@ -91,8 +91,8 @@
                           </div>
                           <button type="submit" class="btn-line">Change Password</button>
                         </form>
-                        <!-- change pw form alert  -->
-                        <div class="alert alert-danger change-pw-alert-danger hide" role="alert"></div>
+                        <!-- change pw form alert container  -->
+                        <div class="change-pw-alert-container"></div>
                       </div><!-- end of form-area -->
                   </li>
                   <!-- SIGN OUT -->
@@ -108,15 +108,8 @@
         </div> <!-- /.container-fluid -->
       </nav>
 
-      <div class="alerts-container">
-        <!-- success alert -->
-        <div class="alert alert-success alert-success-full-width hide" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        </div>
-        <!-- danger alert -->
-        <div class="alert alert-danger alert-danger-full-width hide" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        </div>
+      <div class="full-width-alert-container">
+
       </div>
 
       <div class="col-md-6 col-sm-12 landing-intro">
@@ -179,7 +172,7 @@
                 <form class="update-modal-form">
                   <div class="form-group">
                     <label for="updateInputName">Name</label>
-                    <input type="text" class="form-control" id="updateInputName" name="item[name]" placeholder="Enter item name">
+                    <input type="text" class="form-control" id="updateInputName" name="item[name]" placeholder="Enter item name" required>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputDate">Date</label>
@@ -224,8 +217,8 @@
                   </div>
                   <button type="submit" class="btn-line">Sign In</button>
                 </form>
-                <!-- sign up form alert  -->
-                <div class="alert alert-danger sign-in-alert-danger hide" role="alert"></div>
+                <!-- sign in form alert container  -->
+                <div class="sign-in-alert-container"></div>
               </div><!-- end of form-area -->
             </div> <!-- end tabSignIn -->
 
@@ -248,8 +241,8 @@
                   </div>
                   <button type="submit" class="btn-line">Sign Up</button>
                 </form>
-                <!-- sign up form alert  -->
-                <div class="alert alert-danger sign-up-alert-danger hide" role="alert"></div>
+                <!-- sign up form alert container  -->
+                <div class="sign-up-alert-container"></div>
               </div> <!-- end of form-area -->
             </div> <!-- end tabSignUp -->
           </div><!-- end tab-content -->

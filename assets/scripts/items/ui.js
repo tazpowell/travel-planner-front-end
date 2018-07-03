@@ -68,7 +68,11 @@ const createItemSuccess = function (createResponse) {
 // Create item error
 const createItemError = function (createError) {
   console.log('createError is ', createError)
-  $('.create-alert-warning').html('Create item unsuccessful').toggleClass('hide').fadeOut(2000)
+  $('.create-item-alert-container').html('<div class="alert alert-danger alert-change-pw-error">' +
+  '<button type="button" class="close" aria-hidden="true" data-dismiss="alert">&times;</button>' +
+      'Create item was unsuccessful </div>')
+  $('.alert-change-pw-error').delay(3000).fadeOut()
+  // $('.create-item-alert-container').html('Create item unsuccessful').toggleClass('hide').delay(3000).fadeOut()
 }
 
 // Remove one item from html
@@ -85,27 +89,27 @@ const showAllSuccess = function (showAllResponse) {
   console.log('showAllSuccess ran')
   clearItemBucket()
   console.log('showAllResponse is ', showAllResponse)
+  // check if user has any items
+  if (showAllResponse.items.length === 0) {
+    // $('#alert-success-full-width-p').html('Create your first item')
+    // $('.alert-success-full-width').toggleClass('hide')
+    $('.full-width-alert-container').html('<div class="alert alert-success alert-user-items-empty">' +
+    '<button type="button" class="close" aria-hidden="true" data-dismiss="alert">&times;</button>' +
+        'No items to show. Create a new item to start. </div>')
+    $('.alert-user-items-empty').delay(3000).fadeOut()
+    console.log('items is empty')
+    // debugger
+    return
+  }
   createAllItemBoxes(showAllResponse)
   store.items = showAllResponse.items
   console.log('store.items is ', store.items)
-  // debugger
-  // for (let i = 0; i < showAllResponse.items.length; i++) {
-  //   const table = createTable(showAllResponse.items[i])
-  //   console.log('table is ', table)
-  //   $('#items-list').append(table)
-  // }
 }
 
 // Show all items error
 const showAllError = function (showAllError) {
   console.log('showAllError is ', showAllError)
 }
-
-// Show one item
-// const showOneItemSuccess = function (itemData) {
-//  console.log('show one item success')
-//  $('.form-horizontal').data('id')
-// }
 
 // Populate modal with one item
 const populateItemInModal = function (itemData) {

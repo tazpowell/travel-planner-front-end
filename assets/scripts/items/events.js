@@ -30,6 +30,16 @@ const onShowAllItems = function (event) {
 // HIDE ALL ITEMS
 const onHideAllItems = function () {
   console.log('onHideAllItems ran')
+  // check if user has any items
+  if ($('#item-bucket').is(':empty')) {
+    $('.full-width-alert-container').html('<div class="alert alert-success alert-user-items-empty">' +
+    '<button type="button" class="close" aria-hidden="true" data-dismiss="alert">&times;</button>' +
+        'No items to clear. </div>')
+    $('.alert-user-items-empty').delay(3000).fadeOut()
+    console.log('items is empty')
+    // debugger
+    return
+  }
   itemsUi.clearItemBucket()
 }
 
