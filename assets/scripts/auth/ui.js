@@ -75,6 +75,7 @@ const signInSuccess = function (signInResponse) {
   $('.landing-intro').toggleClass('hide')
   $('.sign-in-sign-up-forms').toggleClass('hide')
   $('.navbar-default').toggleClass('hide')
+  $('.full-width-alert-container').toggleClass('landing-view-only')
   clearForms()
   itemsApi.showAllItems()
     .then(itemsUi.showAllSuccess)
@@ -116,7 +117,7 @@ const changePWError = function () {
 const signOutSuccess = function () {
   clearAlerts()
   // console.log('sign out successful')
-  $('.full-width-alert-container').html('<div class="alert alert-success alert-sign-out-success">' +
+  $('.full-width-alert-container').html('<div class="alert alert-success alert-sign-out-success full-width-alert">' +
   '<button type="button" class="close" aria-hidden="true" data-dismiss="alert">&times;</button>' +
       'Signed out successfully. </div>')
   $('.alert-sign-out-success').delay(3000).fadeOut()
@@ -130,6 +131,7 @@ const signOutSuccess = function () {
   $('.landing-intro').toggleClass('hide')
   $('.sign-in-sign-up-forms').toggleClass('hide')
   $('.navbar-default').toggleClass('hide')
+  $('.full-width-alert-container').toggleClass('landing-view-only')
   // console.log('store is ', store)
   itemsUi.clearItemBucket()
 }
