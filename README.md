@@ -8,7 +8,7 @@ This repo is the front-end for my TravelBox web app.
 It is a simple organizer for saving trip itineray items. Users can create and delete items associated with their account and update the fields. Items are color coded by whether they are part of the final trip plan or not.
 
 ## Technologies
-JavaScript, jQuery, AJAX, Ruby on Rails, Ruby, HTML, CSS
+JavaScript, jQuery, AJAX, HTML, CSS
 
 ## Development Process
 #### Planning
@@ -22,7 +22,7 @@ JavaScript, jQuery, AJAX, Ruby on Rails, Ruby, HTML, CSS
 
 #### API
 - Scaffold 'Items' resource and add relationship to User resource
-- Test end poins with curl scripts
+- Test end points with curl scripts
 
 #### Client
 - Test api with curl scripts
@@ -37,11 +37,15 @@ JavaScript, jQuery, AJAX, Ruby on Rails, Ruby, HTML, CSS
 - Opened GitHub issue on the general project repo to get instructor's help when googling for references and solutions did not yield desired results
 
 ## Future Iterations
+V1b:
+front end:
 - Rebuild nav so it collapses correctly in mobile widths
-- Add additional fields in Items resource
 - Update visual layout of an item card
 - Add sort functionality for items (by date, active status, categories)
 - Rename 'Active' status to make it easy to understand its meaning (such as 'Add to trip')
+
+back end:
+- Add additional fields in Items resource
 
 V2:
 - Create join table named 'Days' that would allow items to be grouped into a 'day' within a trip
