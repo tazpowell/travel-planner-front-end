@@ -11,7 +11,7 @@ const clearForms = function () {
 
 // Clear messages under form fields
 const clearAlerts = function () {
-  console.log('clearAlerts ran')
+  // console.log('clearAlerts ran')
   $('.alert').html('')
 }
 

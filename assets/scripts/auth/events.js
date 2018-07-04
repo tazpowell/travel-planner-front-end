@@ -7,7 +7,7 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 // on Sign Up
 const onSignUp = function (event) {
   event.preventDefault()
-  console.log('the sign up form was submitted')
+  // console.log('the sign up form was submitted')
   const data = getFormFields(event.target)
   // console.log('data is', data)
   // check if passwords matches
@@ -28,9 +28,9 @@ const onSignUp = function (event) {
 // on Sign In
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('the sign in form was submitted')
+  // console.log('the sign in form was submitted')
   const data = getFormFields(event.target)
-  console.log('sign in data is ', data)
+  // console.log('sign in data is ', data)
   // api
   authApi.signIn(data)
     .then(authUi.signInSuccess)

@@ -6,12 +6,12 @@ const store = require('../store.js')
 // on Create Item
 const onCreateItem = function (event) {
   event.preventDefault()
-  console.log('the create item form was submitted')
+  // console.log('the create item form was submitted')
   const data = getFormFields(event.target)
   if (!('active' in data.item)) {
     data.item.active = false
   }
-  console.log('data is ', data)
+  // console.log('data is ', data)
   // debugger
   // api
   itemsApi.createItem(data)
@@ -22,7 +22,7 @@ const onCreateItem = function (event) {
 
 // SHOW ALL ITEMS from server
 const onShowAllItems = function (event) {
-  console.log('show all items was clicked')
+  // console.log('show all items was clicked')
   itemsApi.showAllItems()
     .then(itemsUi.showAllSuccess)
     .catch(itemsUi.showAllError)
@@ -30,14 +30,14 @@ const onShowAllItems = function (event) {
 
 // HIDE ALL ITEMS
 const onHideAllItems = function () {
-  console.log('onHideAllItems ran')
+  // console.log('onHideAllItems ran')
   // check if user has any items
   if ($('#item-bucket').is(':empty')) {
     $('.full-width-alert-container').html('<div class="alert alert-success alert-user-items-empty">' +
     '<button type="button" class="close" aria-hidden="true" data-dismiss="alert">&times;</button>' +
         'No items to hide. </div>')
     $('.alert-user-items-empty').delay(3000).fadeOut()
-    console.log('items is empty')
+    // console.log('items is empty')
     // debugger
     return
   }
@@ -47,28 +47,28 @@ const onHideAllItems = function () {
 // OPEN CREATE DROPDOWN
 const onOpenCreateItem = function (event) {
   $('.create-dropdown').dropdown('toggle')
-  console.log('onOpenCreateItem ran')
+  // console.log('onOpenCreateItem ran')
 }
 
 // OPEN UPDATE MODAL
 const onOpenUpdate = function (event) {
-  console.log('open update was clicked')
+  // console.log('open update was clicked')
   // console.log('event.target data id is ', $(event.currentTarget).data('id'))
   const dataID = $(event.currentTarget.form).data('id')
-  console.log('dataID is ', dataID)
+  // console.log('dataID is ', dataID)
   const itemData = store.items.find(x => x.id === dataID)
-  console.log('itemData is ', itemData)
+  // console.log('itemData is ', itemData)
   // debugger
   itemsUi.populateItemInModal(itemData)
 }
 
 // OPEN DELETE CONFIRMATION
 const onOpenDelete = function (event) {
-  console.log('delete was clicked')
+  // console.log('delete was clicked')
   const dataID = $(event.currentTarget.form).data('id')
-  console.log('dataID is ', dataID)
+  // console.log('dataID is ', dataID)
   const itemData = store.items.find(x => x.id === dataID)
-  console.log('itemData is ', itemData)
+  // console.log('itemData is ', itemData)
   itemsUi.createDeleteConfAlert(itemData)
   // debugger
 }
@@ -76,9 +76,9 @@ const onOpenDelete = function (event) {
 // DELETE ITEM
 const onConfirmDeleteItem = function (event) {
   event.preventDefault()
-  console.log('confirm delete was clicked')
-  console.log('event is ', event)
-  console.log('store.delete is ', store.delete)
+  // console.log('confirm delete was clicked')
+  // console.log('event is ', event)
+  // console.log('store.delete is ', store.delete)
   itemsApi.deleteOneItem(store.delete)
     .then(itemsUi.deleteOneSuccess)
     .catch(itemsUi.deleteOneError)
@@ -88,19 +88,19 @@ const onConfirmDeleteItem = function (event) {
 // UPDATE ITEM
 const onUpdateItem = function (event) {
   event.preventDefault()
-  console.log('update item was clicked')
-  console.log('event is ', event)
+  // console.log('update item was clicked')
+  // console.log('event is ', event)
   const data = getFormFields(event.target)
   // console.log('data is ', data)
   if (!('active' in data.item)) {
     data.item.active = false
   }
-  console.log('data is ', data)
+  // console.log('data is ', data)
   // debugger
   store.update.item.name = data.item.name
   store.update.item.date = data.item.date
   store.update.item.active = data.item.active
-  console.log('store.update is', store.update)
+  // console.log('store.update is', store.update)
   // debugger
   itemsApi.updateOneItem(store.update)
     .then(itemsUi.updateOneSuccess)
