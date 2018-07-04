@@ -76,6 +76,7 @@ const signInSuccess = function (signInResponse) {
   $('.sign-in-sign-up-forms').toggleClass('hide')
   $('.navbar-default').toggleClass('hide')
   $('.full-width-alert-container').toggleClass('landing-view-only')
+  $('body').removeClass('gradient-bg')
   clearForms()
   itemsApi.showAllItems()
     .then(itemsUi.showAllSuccess)
@@ -132,6 +133,7 @@ const signOutSuccess = function () {
   $('.sign-in-sign-up-forms').toggleClass('hide')
   $('.navbar-default').toggleClass('hide')
   $('.full-width-alert-container').toggleClass('landing-view-only')
+  $('body').addClass('gradient-bg')
   // console.log('store is ', store)
   itemsUi.clearItemBucket()
 }
