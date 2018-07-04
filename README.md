@@ -1,4 +1,4 @@
-# Travel Planner
+# TravelBox itinerary organizer
 - Deployed front-end: https://tazukopowell.com/travel-planner-front-end/
 - Deployed back-end:  https://aqueous-forest-96537.herokuapp.com
 - Back-end repo: https://github.com/tazpowell/travel-planner-back-end
