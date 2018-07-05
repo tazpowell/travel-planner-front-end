@@ -35,8 +35,6 @@ const createAllItemBoxes = function (data) {
   const itemsCreated = document.getElementsByClassName('bucket')
   // converts htmlCollection into array
   const arr = Array.prototype.slice.call(itemsCreated)
-  // console.log('itemsCreated is', itemsCreated)
-  // console.log('arr is ', arr)
   arr.forEach(function (x) {
     checkActiveStatus(x)
   })
@@ -88,12 +86,17 @@ const removeOneItemBox = function (itemID) {
 // Show all items success
 const showAllSuccess = function (showAllResponse) {
   // console.log('showAllSuccess ran')
+  if (showAllResponse.items.length > 0 && $('#item-bucket').html() !== '') {
+    $('.full-width-alert-container').html('<div class="alert alert-success alert-user-items-refreshed">' +
+    '<button type="button" class="close" aria-hidden="true" data-dismiss="alert">&times;</button>' +
+        'Items view refreshed. </div>')
+    $('.alert-user-items-refreshed').delay(3000).fadeOut()
+  }
   clearItemBucket()
   // console.log('showAllResponse is ', showAllResponse)
+
   // check if user has any items
   if (showAllResponse.items.length === 0) {
-    // $('#alert-success-full-width-p').html('Create your first item')
-    // $('.alert-success-full-width').toggleClass('hide')
     $('.full-width-alert-container').html('<div class="alert alert-success alert-user-items-empty">' +
     '<button type="button" class="close" aria-hidden="true" data-dismiss="alert">&times;</button>' +
         'No items to show. Create a new item to start. </div>')
@@ -104,7 +107,6 @@ const showAllSuccess = function (showAllResponse) {
   }
   createAllItemBoxes(showAllResponse)
   store.items = showAllResponse.items
-  // console.log('store.items is ', store.items)
 }
 
 // Show all items error
