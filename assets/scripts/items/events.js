@@ -32,7 +32,7 @@ const onShowAllItems = function (event) {
 const onHideAllItems = function () {
   // console.log('onHideAllItems ran')
   // check if user has any items
-  if ($('#item-bucket').is(':empty')) {
+  if ($.trim($('#item-bucket').html()) === '') {
     $('.full-width-alert-container').html('<div class="alert alert-success alert-user-items-empty">' +
     '<button type="button" class="close" aria-hidden="true" data-dismiss="alert">&times;</button>' +
         'No items to hide. </div>')
