@@ -15,8 +15,17 @@ h1 {
   font-size: $font-size-h1;
 }
 
+// hr {
+//   margin: 30px 0;
+// }
+
 hr {
-  margin: 30px 0;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -47,9 +56,28 @@ html {
   }
 }
 
+.bucket-2 {
+  background-color: lighten($light-purple, 38%);
+  border-color: $black;
+  border-radius: 2px;
+  float: left;
+  margin: 20px;
+  // padding: 20px 0;
+  width: 300px;
+
+  &.active-color {
+    background-color: lighten($sea-green, 40%);
+  }
+}
+
 .btn-group {
   float: left;
   padding-left: 15px;
+}
+
+.btn-group-2 {
+  float: left;
+  padding: 10px;
 }
 
 .btn-line {
@@ -156,6 +184,31 @@ html {
   // width: 300px;
 }
 
+.item-card {
+  // border: 1px solid rgba(86, 61, 124, .2);
+  display: inline-block;
+  line-height: 20px;
+  padding: 10px;
+
+  &.item-name {
+    color: $light-purple;
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 15px;
+  }
+
+  &.item-border-right {
+    border-right: 1px solid #ccc;
+  }
+}
+
+.item-label {
+  color: $light-purple;
+  font-size: 14px;
+  font-weight: 700;
+  // line-height: 20px;
+}
+
 .landing-bg {
   // background-image: url('../../public/travelbox_bg.png');
   // background-repeat: no-repeat;
@@ -207,6 +260,10 @@ html {
   position: absolute;
   right: 30px;
   top: 0;
+}
+
+.row {
+  margin: 0;
 }
 
 .sign-in-sign-up-forms {

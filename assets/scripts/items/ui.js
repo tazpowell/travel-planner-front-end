@@ -1,4 +1,5 @@
 const showItemsTemplate = require('../templates/item-box.handlebars')
+const showItemsTemplate2 = require('../templates/item-card.handlebars')
 const store = require('../store.js')
 const itemsApi = require('./api.js')
 
@@ -17,22 +18,25 @@ const clearItemBucket = function () {
 
 // Chech active status to add active-color and active-label classes
 const checkActiveStatus = function (data) {
-  // console.log('checkActiveStatus data is ', data)
-  if (data.querySelector('.item-active-status').innerHTML === 'true') {
+  console.log('checkActiveStatus data is ', data)
+  // debugger
+  if (data.querySelector('.item-active-status').getAttribute('data-status') === 'true') {
     data.classList.add('active-color')
-    const labelsSelected = data.getElementsByClassName('control-label')
-    for (let i = 0; i < labelsSelected.length; i++) {
-      labelsSelected[i].classList.add('active-label')
-    }
+    data.querySelector('.item-active-status').classList.add('glyphicon-star')
+    // const labelsSelected = data.getElementsByClassName('item-label')
+    // for (let i = 0; i < labelsSelected.length; i++) {
+    //   labelsSelected[i].classList.add('active-label')
+    // }
   }
 }
 
 // Create item div for list of all items
 const createAllItemBoxes = function (data) {
-  // console.log('data is ', data)
-  const showItemsHtml = showItemsTemplate({ items: data.items })
+  console.log('createAllItemBoxes data is ', data)
+  const showItemsHtml = showItemsTemplate2({ items: data.items })
   $('#item-bucket').append(showItemsHtml)
-  const itemsCreated = document.getElementsByClassName('bucket')
+  const itemsCreated = document.getElementsByClassName('bucket-2')
+  console.log('itemsCreated is ', itemsCreated)
   // converts htmlCollection into array
   const arr = Array.prototype.slice.call(itemsCreated)
   arr.forEach(function (x) {
@@ -85,7 +89,7 @@ const removeOneItemBox = function (itemID) {
 
 // Show all items success
 const showAllSuccess = function (showAllResponse) {
-  // console.log('showAllSuccess ran')
+  console.log('showAllSuccess ran')
   if (showAllResponse.items.length > 0 && $('#item-bucket').html() !== '') {
     $('.full-width-alert-container').html('<div class="alert alert-success alert-user-items-refreshed">' +
     '<button type="button" class="close" aria-hidden="true" data-dismiss="alert">&times;</button>' +
@@ -93,7 +97,7 @@ const showAllSuccess = function (showAllResponse) {
     $('.alert-user-items-refreshed').delay(3000).fadeOut()
   }
   clearItemBucket()
-  // console.log('showAllResponse is ', showAllResponse)
+  console.log('showAllResponse is ', showAllResponse)
 
   // check if user has any items
   if (showAllResponse.items.length === 0) {
