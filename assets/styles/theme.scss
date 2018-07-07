@@ -197,6 +197,10 @@ html {
     padding-left: 15px;
   }
 
+  &.item-border-left {
+    border-left: 1px solid #ccc;
+  }
+
   &.item-border-right {
     border-right: 1px solid #ccc;
   }

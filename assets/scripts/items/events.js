@@ -52,12 +52,12 @@ const onOpenCreateItem = function (event) {
 
 // OPEN UPDATE MODAL
 const onOpenUpdate = function (event) {
-  // console.log('open update was clicked')
-  // console.log('event.target data id is ', $(event.currentTarget).data('id'))
-  const dataID = $(event.currentTarget.form).data('id')
-  // console.log('dataID is ', dataID)
+  console.log('open update was clicked')
+  let dataID = event.currentTarget.parentElement.parentElement.getAttribute('data-id')
+  console.log('dataID is ', dataID)
+  dataID = Number(dataID)
   const itemData = store.items.find(x => x.id === dataID)
-  // console.log('itemData is ', itemData)
+  console.log('itemData is ', itemData)
   // debugger
   itemsUi.populateItemInModal(itemData)
 }
