@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>TravelBox</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,700" rel="stylesheet">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+
+    <body class="gradient-bg">
+
+      <!--nav bar -->
+      <nav class="navbar navbar-default navbar-fixed-top hide">
+
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a class="navbar-brand">TravelBox</a>
+            <!--SIGNED IN AS -->
+            <p class="navbar-text"></p>
+
+            <!--hamburger button  -->
+            <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#travelbox-navbar-collapse" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button> -->
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <!-- collapse navbar-collapse -->
+            <div class="" id="travelbox-navbar-collapse">
+
+                <!--SHOW ALL  -->
+                <button id="show-all-items-btn" type="button" class="btn btn-default navbar-btn show-hide-all-btn">Show all items</button>
+
+                <!--HIDE ALL  -->
+                <button id="hide-all-items-btn" type="button" class="btn btn-default navbar-btn show-hide-all-btn">Hide all items</button>
+
+                <!-- CREATE  -->
+                  <div class="dropdown create-dropdown navbar-left">
+                      <button id="create-new-item-btn" class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown">Create Item <span class="caret"></span></button>
+                      <div class="form-area dropdown-menu" role="menu">
+                        <form id="create-item-form" class="form-horizontal navbar-form">
+                          <div class="form-group">
+                            <label class="control-label create-label col-sm-2" for="name">Name:</label>
+                            <div class="col-sm-10 inputs-create-form">
+                              <input id="createItemName" class="form-control" name="item[name]" type="text" placeholder="Enter item name" required>
+                            </div>
+                            <label class="control-label create-label col-sm-2" for="date">Date:</label>
+                            <div class="col-sm-10 inputs-create-form">
+                              <input id="createItemDate" class="form-control" name="item[date]" type="date" value="" placeholder="">
+                            </div>
+                            <label class="control-label create-label col-sm-2" for="address">Address:</label>
+                            <div class="col-sm-10 inputs-create-form">
+                              <input id="createItemAddress" class="form-control" name="item[address]" type="text" value="" placeholder="Enter address">
+                            </div>
+                            <label class="control-label create-label col-sm-2" for="url">URL:</label>
+                            <div class="col-sm-10 inputs-create-form">
+                              <input id="createItemUrl" class="form-control" name="item[url]" type="text" value="Enter address" placeholder="">
+                            </div>
+                            <label class="control-label create-label col-sm-2" for="hours">Hours:</label>
+                            <div class="col-sm-10 inputs-create-form">
+                              <input id="createItemHours" class="form-control" name="item[hours]" type="text" value="Enter hours" placeholder="">
+                            </div>
+                            <label class="control-label create-label col-sm-2" for="duration">Duration:</label>
+                            <div class="col-sm-10 inputs-create-form">
+                              <input id="createItemDuration" class="form-control" name="item[duration]" type="text" value="Enter duration" placeholder="">
+                            </div>
+                            <label class="control-label create-label col-sm-2" for="cost">Cost:</label>
+                            <div class="col-sm-10 inputs-create-form">
+                              <input id="createItemCost" class="form-control" name="item[cost]" type="text" value="Enter cost" placeholder="">
+                            </div>
+                            <label class="control-label create-label col-sm-2" for="tags">Tags:</label>
+                            <div class="col-sm-10 inputs-create-form">
+                              <input id="createItemTags" class="form-control" name="item[tags]" type="text" value="Enter tags" placeholder="">
+                            </div>
+                            <label class="control-label create-label col-sm-2" for="notes">Notes:</label>
+                            <div class="col-sm-10 inputs-create-form">
+                              <input id="createItemNotes" class="form-control" name="item[notes]" type="text" value="Enter notes" placeholder="">
+                            </div>
+                            <label class="control-label create-label col-sm-2" for="active">Active:</label>
+                            <div class="col-sm-10 inputs-create-form">
+                              <input type="checkbox" class="form-check-input" id="createCheckActive" name="item[active]" value="true">
+                              <p>Check box if item is part of the final itinerary</p>
+                            </div>
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-10"><button type="submit" class="btn-line">Create item</button></div>
+                          </div>
+                        </form>
+                        <!-- create item form alert container  -->
+                        <div class="create-item-alert-container"></div>
+                      </div><!-- end of div class form-area -->
+                  </div>
+
+              <!-- end of show all and create  -->
+
+              <!-- <div class=""> -->
+                <ul class="nav navbar-nav navbar-right navbar-signout-changepw">
+                  <!-- CHANGE PW -->
+                  <li class="dropdown">
+                      <button id="change-pw-btn" class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown">Change Password <span class="caret"></span></button>
+                      <div class="form-area dropdown-menu pull-right">
+                        <form id="change-pw-form">
+                          <div class="form-group">
+                            <label for="old-pw-change">Old password:</label>
+                            <input id="old-pw-change" class="form-control" name="passwords[old]" type="password" placeholder="Old password" required>
+                          </div>
+                          <div class="form-group">
+                            <label for="new-pw-change">New password:</label>
+                            <input id="new-pw-change" class="form-control" name="passwords[new]" type="password" placeholder="New password" required>
+                            <span id="change-pw-msg" class="ui-message"></span>
+                          </div>
+                          <button type="submit" class="btn-line">Change Password</button>
+                        </form>
+                        <!-- change pw form alert container  -->
+                        <div class="change-pw-alert-container"></div>
+                      </div><!-- end of form-area -->
+                  </li>
+                  <!-- SIGN OUT -->
+                  <li><button id="sign-out-btn" type="button" class="btn btn-default navbar-btn">Sign Out</button></li>
+                </ul>
+
+              <!-- </div> -->
+
+            </div> <!-- end of navbar class="collapse navbar-collapse" id="travelbox-navbar-collapse"  -->
+
+          </div> <!-- end of navbar-header -->
+
+        </div> <!-- /.container-fluid -->
+      </nav>
+
+      <!--full width alert container  -->
+      <div class="full-width-alert-container landing-view-only">
+
+      </div>
+
+      <div class="col-md-6 col-sm-12 landing-intro">
+      <!--landing page title  -->
+      <h1 class="travelBoxTitle">TravelBox</h1>
+      <p>Use TravelBox to keep track of itinerary items for your upcoming trip!</p>
+      </div>
+
+
+
+      <div class="container col-md-6 col-sm-12 landing-content">
+
+        <!-- Modal -->
+        <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="updateModalLabel">Edit item</h5>
+
+              </div>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="modal-body">
+                <form class="update-modal-form">
+                  <div class="form-group col-sm-6">
+                    <label for="updateInputName">Name</label>
+                    <input type="text" class="form-control" id="updateInputName" name="item[name]" placeholder="Enter item name" required>
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label for="updateInputDate">Date</label>
+                    <input type="date" class="form-control" id="updateInputDate" name="item[date]" placeholder="">
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <label for="updateInputAddress">Address</label>
+                    <input type="text" class="form-control" id="updateInputAddress" name="item[address]" placeholder="">
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <label for="updateInputUrl">Url</label>
+                    <input type="text" class="form-control" id="updateInputUrl" name="item[url]" placeholder="">
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label for="updateInputHours">Hours</label>
+                    <input type="text" class="form-control" id="updateInputHours" name="item[hours]" placeholder="">
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label for="updateInputDuration">Duration</label>
+                    <input type="text" class="form-control" id="updateInputDuration" name="item[duration]" placeholder="">
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <label for="updateInputCost">Cost</label>
+                    <input type="text" class="form-control" id="updateInputCost" name="item[cost]" placeholder="">
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <label for="updateInputTags">Tags</label>
+                    <input type="text" class="form-control" id="updateInputTags" name="item[tags]" placeholder="">
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <label for="updateInputNotes">Notes</label>
+                    <input type="text" class="form-control" id="updateInputNotes" name="item[notes]" placeholder="">
+                  </div>
+                  <div class="form-check col-sm-12">
+                    <input type="checkbox" class="form-check-input" id="updateCheckActive" name="item[active]" value="true">
+                    <label class="form-check-label" for="updateCheckActive">Active</label>
+                  </div>
+                  <div class="modal-footer">
+                  <button type="submit" class="btn btn-line" id="updateFormSubmitBtn">Update</button>
+                  <button type="button" class="btn btn-line" data-dismiss="modal">Cancel</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sign-in-sign-up-forms col-sm-12">
+        <!-- tabs sign up sign in  -->
+          <ul id="nav-sign-up-in" class="nav nav-tabs on-sign-in">
+            <li class="active"><a data-toggle="tab" href="#tabSignIn">Sign In</a></li>
+            <li><a data-toggle="tab" href="#tabSignUp">Sign Up</a></li>
+          </ul>
+
+          <div class="tab-content on-sign-in">
+
+            <div id="tabSignIn" class="tab-pane fade in active">
+              <!-- SIGN IN -->
+              <div class="form-area">
+                <!-- <button id="guest-btn" type="button" class="btn-line">Sign in as Guest</button> -->
+                <form id="sign-in-form">
+                  <div class="form-group">
+                    <label for="email-signin">Email:</label>
+                    <input id="email-signin" class="form-control" name="credentials[email]" type="email" placeholder="Enter email" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd-signin">Password:</label>
+                    <input id="pwd-signin" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password" required>
+                    <span id="sign-in-msg" class="ui-message"></span>
+                  </div>
+                  <button type="submit" class="btn-line">Sign In</button>
+                </form>
+                <!-- sign in form alert container  -->
+                <div class="sign-in-alert-container"></div>
+              </div><!-- end of form-area -->
+            </div> <!-- end tabSignIn -->
+
+            <div id="tabSignUp" class="tab-pane fade">
+              <!-- SIGN UP -->
+              <div class="form-area">
+                <form id="sign-up-form">
+                  <div class="form-group">
+                    <label for="email-signup">Email:</label>
+                    <input id="email-signup" class="form-control" name="credentials[email]" type="email" placeholder="Enter email" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd-signup">Password:</label>
+                    <input id="pwd-signup" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd-conf-signup">Confirm password:</label>
+                    <input id="pwd-conf-signup" class="form-control" name="credentials[password_confirmation]" type="password" value="" placeholder="Retype password" required>
+                    <span id="sign-up-msg" class="ui-message"></span>
+                  </div>
+                  <button type="submit" class="btn-line">Sign Up</button>
+                </form>
+                <!-- sign up form alert container  -->
+                <div class="sign-up-alert-container"></div>
+              </div> <!-- end of form-area -->
+            </div> <!-- end tabSignUp -->
+          </div><!-- end tab-content -->
+        </div> <!-- end of sign-in-sign-up-forms -->
+    </div> <!-- end of landing-content container -->
+
+    <!-- <form class="form-horizontal bucket" data-id="{{item.id}}">
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="name">Name:</label>
+        <div class="col-sm-10">
+          <p class="form-control-static">Tokyo Skytree</p>
+        </div>
+        <label class="control-label col-sm-1 glyphicon glyphicon-map-marker" for="address"></label>
+        <div class="col-sm-11">
+          <p class="form-control-static">1 Chome-1-2 Oshiage, Sumida, Tokyo 131-0045, Japan</p>
+        </div>
+        <label class="control-label col-sm-1 glyphicon glyphicon-time" for="hours"></label>
+        <div class="col-sm-11">
+          <p class="form-control-static">8:00-22:00</p>
+        </div>
+        <label class="control-label col-sm-1 glyphicon glyphicon-hourglass" for="duration"></label>
+        <div class="col-sm-5">
+          <p class="form-control-static">120min</p>
+        </div>
+        <label class="control-label col-sm-1 glyphicon glyphicon-jpy" for="cost"></label>
+        <div class="col-sm-5">
+          <p class="form-control-static">¥3,000</p>
+        </div>
+        <label class="control-label col-sm-3" for="date">Date:</label>
+        <div class="col-sm-9">
+          <p class="form-control-static">2018-10-10</p>
+        </div>
+        <label class="control-label col-sm-3" for="active">Active:</label>
+        <div class="col-sm-9">
+          <p class="form-control-static item-active-status">True</p>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default edit-item-btn" aria-label="edit item">
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>
+          </button>
+          <button type="button" class="btn btn-default delete-item-btn" aria-label="delete item">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>
+          </button>
+        </div>
+      </div>
+    </form> -->
+
+    <!-- <div class="bucket-2">
+      <div class="row">
+        <div class="col-sm-10 item-card item-name">Tokyo Skytree</div>
+        <div class="col-sm-2 item-card item-label glyphicon glyphicon-star"></div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-sm-1 item-card item-label glyphicon glyphicon-calendar"></div>
+        <div class="col-sm-11 item-card">2019-10-10</div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-sm-1 item-card item-label glyphicon glyphicon-map-marker"></div>
+        <div class="col-sm-11 item-card">1 Chome-1-2 Oshiage, Sumida, Tokyo 131-0045, Japan</div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-sm-1 item-card item-label glyphicon glyphicon-link"></div>
+        <div class="col-sm-11 item-card"><a href="http://www.tokyo-skytree.jp/">http://www.tokyo-skytree.jp/</a></div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-sm-1 item-card item-label glyphicon glyphicon-time"></div>
+        <div class="col-sm-11 item-card">8:00-22:00</div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-sm-1 item-card item-label glyphicon glyphicon-hourglass"></div>
+        <div class="col-sm-5 item-card item-border-right">120min</div>
+        <div class="col-sm-1 item-card item-label glyphicon glyphicon-jpy"></div>
+        <div class="col-sm-5 item-card">¥3,000</div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-sm-1 item-card item-label glyphicon glyphicon-tag"></div>
+        <div class="col-sm-11 item-card">sightsee</div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-sm-1 item-card item-label glyphicon glyphicon-info-sign"></div>
+        <div class="col-sm-11 item-card">Lorem ispum notes </div>
+      </div>
+      <hr/>
+      <div class="col-sm-6 btn-group-2">
+        <button type="button" class="btn btn-default edit-item-btn" aria-label="edit item">
+          <span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>
+        </button>
+        <button type="button" class="btn btn-default delete-item-btn" aria-label="delete item">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>
+        </button>
+      </div>
+
+    </div> -->
+
+    <div id="item-bucket" class="col-sm-12">
+    </div>
+</html>
