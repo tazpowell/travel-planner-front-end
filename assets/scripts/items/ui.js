@@ -18,7 +18,7 @@ const clearItemBucket = function () {
 
 // Chech active status to add active-color and active-label classes
 const checkActiveStatus = function (data) {
-  console.log('checkActiveStatus data is ', data)
+  // console.log('checkActiveStatus data is ', data)
   // debugger
   if (data.querySelector('.item-active-status').getAttribute('data-status') === 'true') {
     data.classList.add('active-color')
@@ -32,11 +32,11 @@ const checkActiveStatus = function (data) {
 
 // Create item div for list of all items
 const createAllItemBoxes = function (data) {
-  console.log('createAllItemBoxes data is ', data)
+  // console.log('createAllItemBoxes data is ', data)
   const showItemsHtml = showItemsTemplate2({ items: data.items })
   $('#item-bucket').append(showItemsHtml)
   const itemsCreated = document.getElementsByClassName('bucket-2')
-  console.log('itemsCreated is ', itemsCreated)
+  // console.log('itemsCreated is ', itemsCreated)
   // converts htmlCollection into array
   const arr = Array.prototype.slice.call(itemsCreated)
   arr.forEach(function (x) {
@@ -59,7 +59,7 @@ const createOneItemBox = function (data) {
 
 // Create item success
 const createItemSuccess = function (createResponse) {
-  // console.log('createResponse is ', createResponse)
+  console.log('createResponse is ', createResponse)
   createOneItemBox(createResponse)
   // console.log('store.items is ', store.items)
   $('#createItemName').val('')
@@ -128,6 +128,13 @@ const populateItemInModal = function (itemData) {
   // console.log('store.update inside populateItemInModal is ', store.update)
   $('#updateInputName').val(itemData.name)
   $('#updateInputDate').val(itemData.date)
+  $('#updateInputAddress').val(itemData.address)
+  $('#updateInputUrl').val(itemData.url)
+  $('#updateInputHours').val(itemData.hours)
+  $('#updateInputDuration').val(itemData.duration)
+  $('#updateInputCost').val(itemData.cost)
+  $('#updateInputTags').val(itemData.tags)
+  $('#updateInputNotes').val(itemData.notes)
   if (itemData.active === true) {
     document.getElementById('updateCheckActive').checked = true
   }
@@ -137,7 +144,7 @@ const populateItemInModal = function (itemData) {
 
 // Update one item success
 const updateOneSuccess = function (updateResponse) {
-  // console.log('updateResponse is ', updateResponse)
+  console.log('updateResponse is ', updateResponse)
   $('#updateModal').modal('toggle')
   itemsApi.showAllItems()
     .then(showAllSuccess)

@@ -6,12 +6,12 @@ const store = require('../store.js')
 // on Create Item
 const onCreateItem = function (event) {
   event.preventDefault()
-  // console.log('the create item form was submitted')
+  console.log('the create item form was submitted')
   const data = getFormFields(event.target)
   if (!('active' in data.item)) {
     data.item.active = false
   }
-  // console.log('data is ', data)
+  console.log('data is ', data)
   // debugger
   // api
   itemsApi.createItem(data)
@@ -88,19 +88,26 @@ const onConfirmDeleteItem = function (event) {
 // UPDATE ITEM
 const onUpdateItem = function (event) {
   event.preventDefault()
-  // console.log('update item was clicked')
+  console.log('update item was clicked')
   // console.log('event is ', event)
   const data = getFormFields(event.target)
-  // console.log('data is ', data)
+  console.log('data is ', data)
   if (!('active' in data.item)) {
     data.item.active = false
   }
-  // console.log('data is ', data)
+  console.log('data is ', data)
   // debugger
   store.update.item.name = data.item.name
   store.update.item.date = data.item.date
   store.update.item.active = data.item.active
-  // console.log('store.update is', store.update)
+  store.update.item.address = data.item.address
+  store.update.item.url = data.item.url
+  store.update.item.hours = data.item.hours
+  store.update.item.duration = data.item.duration
+  store.update.item.cost = data.item.cost
+  store.update.item.tags = data.item.tags
+  store.update.item.notes = data.item.notes
+  console.log('store.update is', store.update)
   // debugger
   itemsApi.updateOneItem(store.update)
     .then(itemsUi.updateOneSuccess)

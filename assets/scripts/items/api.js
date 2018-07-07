@@ -27,7 +27,7 @@ const showAllItems = function () {
 
 // UPDATE ONE
 const updateOneItem = function (data) {
-  // console.log('updateOneItem data is', data)
+  console.log('updateOneItem data is', data)
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/items/' + data.item.id,
