@@ -65,8 +65,9 @@ const onOpenUpdate = function (event) {
 // OPEN DELETE CONFIRMATION
 const onOpenDelete = function (event) {
   // console.log('delete was clicked')
-  const dataID = $(event.currentTarget.form).data('id')
+  let dataID = event.currentTarget.parentElement.parentElement.getAttribute('data-id')
   // console.log('dataID is ', dataID)
+  dataID = Number(dataID)
   const itemData = store.items.find(x => x.id === dataID)
   // console.log('itemData is ', itemData)
   itemsUi.createDeleteConfAlert(itemData)
@@ -76,9 +77,9 @@ const onOpenDelete = function (event) {
 // DELETE ITEM
 const onConfirmDeleteItem = function (event) {
   event.preventDefault()
-  // console.log('confirm delete was clicked')
+  console.log('confirm delete was clicked')
   // console.log('event is ', event)
-  // console.log('store.delete is ', store.delete)
+  console.log('store.delete is ', store.delete)
   itemsApi.deleteOneItem(store.delete)
     .then(itemsUi.deleteOneSuccess)
     .catch(itemsUi.deleteOneError)

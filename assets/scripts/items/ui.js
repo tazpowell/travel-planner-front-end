@@ -82,7 +82,7 @@ const createItemError = function (createError) {
 const removeOneItemBox = function (itemID) {
   // console.log('removeOneItemBox itemID is ', itemID)
   // console.log('filter result is ', $('.form-horizontal[data-id=' + itemID + ']'))
-  $('.form-horizontal[data-id=' + itemID + ']').remove()
+  $('.bucket-2[data-id=' + itemID + ']').remove()
   // console.log('removeOneItemBox ran')
   // debugger
 }
@@ -144,7 +144,7 @@ const populateItemInModal = function (itemData) {
 
 // Update one item success
 const updateOneSuccess = function (updateResponse) {
-  console.log('updateResponse is ', updateResponse)
+  // console.log('updateResponse is ', updateResponse)
   $('#updateModal').modal('toggle')
   itemsApi.showAllItems()
     .then(showAllSuccess)
@@ -166,8 +166,8 @@ const updateOneError = function (updateOneError) {
 
 // create delete confirmation alert
 const createDeleteConfAlert = function (itemData) {
-  // console.log('createDeleteConfAlert itemData is', itemData)
-  $('.form-horizontal[data-id=' + itemData.id + ']').append('<div class="alert alert-warning fade in item-alert" role="alert">' +
+  console.log('createDeleteConfAlert itemData is', itemData)
+  $('.bucket-2[data-id=' + itemData.id + ']').append('<div class="alert alert-warning fade in item-alert" role="alert">' +
     '<div><a href="#" class="alert-link">Are you sure you want to delete ' +
     itemData.name +
     '?</a></div>' +
